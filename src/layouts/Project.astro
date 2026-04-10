@@ -1,0 +1,24 @@
+---
+import Page from "./Page.astro";
+
+const { frontmatter } = Astro.props;
+const pageTitle = frontmatter.title;
+---
+
+<Page pageTitle={pageTitle}>
+  <a href="/">voltar</a>
+  <header class="header">
+    <span>Projetos</span>
+    <h1>{pageTitle}</h1>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+</Page>
+
+<style>
+  .header {
+    margin-block: 24px;
+  }
+</style>

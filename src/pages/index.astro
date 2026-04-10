@@ -1,3 +1,22 @@
-<body>
-  <h1>Ray Zaranza</h1>
-</body>
+---
+import Page from "@/layouts/Page.astro";
+import { getCollection } from "astro:content";
+
+const pageTitle = "Projetos";
+const projects = await getCollection("projects");
+---
+
+<Page pageTitle={pageTitle}>
+  <h1>{pageTitle}</h1>
+  <ul>
+    {
+      projects.map((project) => (
+        <li>
+          <article>
+            <a href={`/projetos/${project.data.slug}`}>{project.data.title}</a>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</Page>
