@@ -1,0 +1,57 @@
+---
+import Wrapper from "./Wrapper.astro";
+---
+
+<footer class="footer">
+  <Wrapper>
+    <p class="credits">
+      Esse site foi desenhado no <a target="_blank" href="https://figma.com"
+        >Figma</a
+      >, desenvolvido com <a target="_blank" href="https://astro.build">Astro</a
+      > e hospedado no <a target="_blank" href="https://cloudflare.com"
+        >Cloudflare</a
+      >. Os ícones são do <a target="_blank" href="https://feathericons.com/"
+        >Feather
+      </a>e a fonte é da família <a
+        target="_blank"
+        href="https://github.com/googlefonts/geologica">Geologica</a
+      >.
+    </p>
+
+    <div class="footnote">
+      <span>2026 © Ray Zaranza</span>
+      <nav class="links">
+        <a target="_blank" href="https://linkedin.com/in/rayzaranza">Linkedin</a
+        >
+        <a target="_blank" href="https://github.com/rayzaranza">GitHub</a>
+        <a target="_blank" href="mailto:ray@zaranza.com.br">Email</a>
+      </nav>
+    </div>
+  </Wrapper>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 96px;
+  }
+
+  .credits {
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .links {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footnote {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 32px 64px;
+  }
+</style>

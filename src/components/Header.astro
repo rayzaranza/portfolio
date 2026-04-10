@@ -1,6 +1,50 @@
+---
+import Wrapper from "./Wrapper.astro";
+---
+
 <header>
-  <div class="title">
-    <p>Ray Zaranza</p>
-    <small>Desenvolvedor · Designer</small>
-  </div>
+  <Wrapper class="wrapper">
+    <div class="info">
+      <p class="title"><a class="link" href="/">Ray Zaranza</a></p>
+      <span class="subtitle">Desenvolvedor · Designer</span>
+    </div>
+
+    <nav class="menu">
+      <a class="link" href="/">Projetos</a>
+      <a class="link" href="/sobre">Sobre</a>
+    </nav>
+  </Wrapper>
 </header>
+
+<style>
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .menu {
+    display: none;
+    align-items: baseline;
+    gap: 24px;
+
+    @media screen and (min-width: 576px) {
+      display: flex;
+    }
+  }
+</style>
