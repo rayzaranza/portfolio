@@ -1,0 +1,30 @@
+:root {
+  --color-content: oklch(30.32% 0.01 285.9deg);
+  --color-content-secondary: oklch(46.8% 0.02 285.73deg);
+  --color-content-tertiary: oklch(70.58% 0.01 291.94deg);
+  --color-background: oklch(96.94% 0 195.44deg);
+  --color-tag-purple: oklch(93.48% 0.04 302.52deg);
+  --color-tag-red: oklch(94.08% 0.03 17.75deg);
+  --color-tag-green: oklch(94.26% 0.06 171.07deg);
+  --color-tag-yellow: oklch(96.59% 0.04 88.77deg);
+  --space-50: 0.25rem;
+  --space-100: 0.5rem;
+  --space-150: 0.75rem;
+  --space-200: 1rem;
+  --space-300: 1.5rem;
+  --space-400: 2rem;
+  --space-500: 3rem;
+  --space-600: 4rem;
+  --space-700: 6rem;
+}
+
+[data-mode="dark"] {
+  --color-content: oklch(96.94% 0 195.44deg);
+  --color-content-secondary: oklch(84.71% 0.01 262.39deg);
+  --color-content-tertiary: oklch(66.15% 0.03 263.36deg);
+  --color-background: oklch(20.2% 0.01 285.7deg);
+  --color-tag-purple: oklch(28.1% 0.12 294.19deg);
+  --color-tag-red: oklch(26.15% 0.08 24.38deg);
+  --color-tag-green: oklch(27.24% 0.05 164.24deg);
+  --color-tag-yellow: oklch(30.4% 0.05 71.29deg);
+}
