@@ -1,22 +1,33 @@
 ---
+import aboutData from "@/data/about.json";
+import type { AboutData } from "@/data/types";
 import RootLayout from "@/layouts/RootLayout.astro";
+import Wrapper from "@/layouts/Wrapper.astro";
 import { getCollection } from "astro:content";
 
-const pageTitle = "Projetos";
+const { basics } = aboutData as AboutData;
 const projects = await getCollection("projects");
 ---
 
-<RootLayout pageTitle={pageTitle}>
-  <h1>{pageTitle}</h1>
-  <ul>
-    {
-      projects.map((project) => (
-        <li>
-          <article>
-            <a href={`/projetos/${project.data.slug}`}>{project.data.title}</a>
-          </article>
-        </li>
-      ))
-    }
-  </ul>
+<RootLayout pageTitle="Ray Zaranza | Desenvolvedor front-end · Designer de UI">
+  <Wrapper>
+    <section>
+      <h2>Projetos</h2>
+      <ul>
+        {
+          projects.map(({ data }) => (
+            <li>
+              <a href={`/projetos/${data.slug}`}>{data.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/projetos">Todos os projetos</a>
+    </section>
+    <section>
+      <h2>Sobre</h2>
+      <p>{basics.summary}</p>
+      <a href="/sobre">Perfil completo</a>
+    </section>
+  </Wrapper>
 </RootLayout>
