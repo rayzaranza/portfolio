@@ -13,6 +13,7 @@ p,
 figure,
 blockquote,
 ul,
+ol,
 li,
 dl,
 dd {
@@ -32,8 +33,7 @@ button {
   outline: none;
 }
 
-ul,
-li {
+ul {
   list-style: none;
   appearance: none;
 }
