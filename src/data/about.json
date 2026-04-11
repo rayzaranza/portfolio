@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "phone": "+55 85 99906-4376",
+    "url": "https://rayzaranza.com.br",
+    "name": "Ray Zaranza",
+    "email": "rayzaranza@gmail.com",
+    "label": "Designer de Produto",
+    "location": {
+      "city": "Fortaleza",
+      "region": "Ceará",
+      "countryCode": "BR"
+    },
+    "image": "/profile.jpg",
+    "profiles": [
+      {
+        "network": "Linkedin",
+        "url": "https://linkedin.com/in/rayzaranza",
+        "username": "rayzaranza"
+      }
+    ],
+    "summary": "Comecei no design gráfico e edição de vídeo há 12+ anos e . Em 2018, migrei para UX/UI e fui me especializando em Design Systems. Sou apaixonado pela interseção entre tecnologia e arte, além de design, desenvolvo sites e exploro computação gráfica."
+  }
+}
