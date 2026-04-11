@@ -36,6 +36,10 @@ button {
 }
 
 a {
+  display: inline-flex;
+  gap: var(--space-100);
+  color: var(--color-content-secondary);
+  align-items: center;
   text-decoration-line: underline;
   text-decoration-thickness: 1.25px;
   text-underline-offset: 0.25rem;
