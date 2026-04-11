@@ -1,49 +1,80 @@
 ---
-import Wrapper from "./Wrapper.astro";
+import Wrapper from "@/layouts/Wrapper.astro";
+import ModeToggle from "./ModeToggle.astro";
+const isActive = (page: string) => Astro.url.pathname.startsWith(page);
 ---
 
 <header>
   <Wrapper class="wrapper">
     <div class="info">
-      <p class="title"><a class="link" href="/">Ray Zaranza</a></p>
-      <span class="subtitle">Desenvolvedor · Designer</span>
+      <a class="title link" aria-hidden="true" href="/">Ray Zaranza</a>
+      <span class="caption">Desenvolvedor · Designer</span>
     </div>
 
     <nav class="menu">
-      <a class="link" href="/">Projetos</a>
-      <a class="link" href="/sobre">Sobre</a>
+      <a
+        class="link"
+        aria-current={isActive("/projetos") ? "page" : undefined}
+        href="/projetos">Projetos</a
+      >
+      <a
+        class="link"
+        aria-current={isActive("/sobre") ? "page" : undefined}
+        href="/sobre">Sobre</a
+      >
     </nav>
+    <ModeToggle />
   </Wrapper>
 </header>
 
 <style>
   .wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    gap: var(--space-200);
+    color: var(--color-content-secondary);
   }
 
   .title {
     font-weight: 700;
-    font-size: 18px;
+    font-size: var(--font-size-200);
+    color: var(--color-content);
   }
 
   .info {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    align-items: start;
+    gap: var(--space-050);
   }
 
-  a {
-    text-decoration: none;
+  .link {
+    text-decoration-line: none;
+
+    &[aria-current="page"] {
+      color: var(--color-content);
+      text-decoration-line: underline;
+    }
+
+    &:hover {
+      text-decoration-line: underline;
+    }
   }
 
   .menu {
     display: none;
-    align-items: baseline;
-    gap: 24px;
+    align-items: center;
+    gap: var(--space-300);
+    font-size: var(--font-size-050);
+  }
 
-    @media screen and (min-width: 576px) {
+  @media screen and (min-width: 576px) {
+    .wrapper {
+      grid-template-columns: 1fr auto auto;
+    }
+
+    .menu {
       display: flex;
     }
   }

@@ -1,22 +1,22 @@
 ---
-import Wrapper from "./Wrapper.astro";
+import Wrapper from "@/layouts/Wrapper.astro";
 ---
 
-<footer class="footer">
+<footer class="footer caption">
   <Wrapper>
-    <p class="credits">
+    <span class="credits">
       Esse site foi desenhado no <a target="_blank" href="https://figma.com"
         >Figma</a
       >, desenvolvido com <a target="_blank" href="https://astro.build">Astro</a
       > e hospedado no <a target="_blank" href="https://cloudflare.com"
         >Cloudflare</a
       >. Os ícones são do <a target="_blank" href="https://feathericons.com/"
-        >Feather
-      </a>e a fonte é da família <a
+        >Feather</a
+      > e a fonte é da família <a
         target="_blank"
         href="https://github.com/googlefonts/geologica">Geologica</a
       >.
-    </p>
+    </span>
 
     <div class="footnote">
       <span>2026 © Ray Zaranza</span>
@@ -36,8 +36,10 @@ import Wrapper from "./Wrapper.astro";
   }
 
   .credits {
-    max-width: 640px;
-    margin-bottom: 48px;
+    display: block;
+    max-width: 580px;
+    margin-bottom: var(--space-600);
+    line-height: var(--line-height-large);
   }
 
   .links {

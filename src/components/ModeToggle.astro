@@ -1,0 +1,36 @@
+---
+import { SunIcon, MoonIcon } from "astro-feather";
+---
+
+<button
+  class="button square"
+  aria-label="Alterar modo de cores"
+  data-mode-toggle
+>
+  <span data-icon="dark"><MoonIcon /></span>
+  <span data-icon="light"><SunIcon /></span>
+</button>
+
+<script>
+  function handleToggle() {
+    const toggle = document.querySelector("[data-mode-toggle]");
+    toggle?.addEventListener("click", () => {
+      const newMode =
+        localStorage.getItem("mode") === "dark" ? "light" : "dark";
+      localStorage.setItem("mode", newMode);
+      document.documentElement.dataset.mode = newMode;
+    });
+  }
+
+  handleToggle();
+  document.addEventListener("astro:after-swap", handleToggle);
+</script>
+
+<style>
+  :root[data-mode="dark"] [data-icon="dark"] {
+    display: none;
+  }
+  :root[data-mode="light"] [data-icon="light"] {
+    display: none;
+  }
+</style>

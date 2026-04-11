@@ -1,24 +1,27 @@
 ---
-import Page from "./Page.astro";
+import RootLayout from "./RootLayout.astro";
+import Wrapper from "./Wrapper.astro";
+import { ArrowLeftIcon } from "astro-feather";
 
 const { frontmatter } = Astro.props;
 const pageTitle = frontmatter.title;
 ---
 
-<Page pageTitle={pageTitle}>
-  <a href="/">voltar</a>
-  <header class="header">
-    <span>Projetos</span>
-    <h1>{pageTitle}</h1>
-  </header>
-
-  <main>
-    <slot />
-  </main>
-</Page>
+<RootLayout pageTitle={pageTitle}>
+  <Wrapper>
+    <header class="header">
+      <a href="/"><ArrowLeftIcon /> voltar</a>
+      <span class="caption">Projetos</span>
+      <h1>{pageTitle}</h1>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </Wrapper>
+</RootLayout>
 
 <style>
   .header {
-    margin-block: 24px;
+    margin-block: var(--space-200);
   }
 </style>
