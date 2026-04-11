@@ -23,3 +23,17 @@ dd {
 a {
   color: unset;
 }
+
+button {
+  color: unset;
+  background-color: unset;
+  appearance: none;
+  border: none;
+  outline: none;
+}
+
+ul,
+li {
+  list-style: none;
+  appearance: none;
+}

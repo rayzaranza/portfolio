@@ -1,8 +1,80 @@
 @import "./reset.css";
 @import "./tokens.css";
 
-html {
+:root {
   background-color: var(--color-background);
   color: var(--color-content);
   font-family: var(--font-family);
+  text-rendering: optimizeLegibility;
+  overflow-y: scroll;
+}
+
+button {
+  display: flex;
+  background-color: var(--color-background);
+  gap: var(--space-100);
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding-inline: var(--space-200);
+  border-radius: 16px;
+  corner-shape: squircle;
+
+  &.square {
+    width: 48px;
+    padding: 0;
+  }
+
+  &:hover {
+    background-color: var(--color-background-hover);
+    color: var(--color-content);
+  }
+
+  &:active {
+    background-color: var(--color-background-active);
+  }
+}
+
+a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.25px;
+  text-underline-offset: 0.25rem;
+  &:hover {
+    color: var(--color-content);
+  }
+}
+
+p {
+  font-size: var(--font-size-100);
+  margin-block-start: var(--space-200);
+  line-height: var(--line-height-large);
+}
+
+li {
+  margin-block-end: var(--space-400);
+  font-size: var(--font-size-100);
+}
+
+h1 {
+  font-size: var(--font-size-400);
+  margin-block-end: var(--space-200);
+}
+
+h2 {
+  font-size: var(--font-size-300);
+  margin-block-end: var(--space-200);
+}
+
+h3 {
+  font-size: var(--font-size-200);
+  margin-block-end: var(--space-100);
+}
+
+section {
+  margin-block-end: var(--space-600);
+}
+
+.caption {
+  font-size: var(--font-size-050);
+  color: var(--color-content-secondary);
 }
