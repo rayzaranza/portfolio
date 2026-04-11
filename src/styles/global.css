@@ -74,7 +74,6 @@ section {
   margin-block-end: var(--space-600);
 }
 
-.caption {
-  font-size: var(--font-size-050);
-  color: var(--color-content-secondary);
+ol {
+  margin-inline-start: var(--space-200);
 }
