@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "work": [
+    {
+      "name": "zaranza",
+      "url": "https://www.instagram.com/zaranza.co",
+      "position": "Designer e Desenvolvedor Front-end",
+      "startDate": "2024",
+      "summary": "No estúdio zaranza, contribuo com construção de marcas, modelagem 3D e desenvolvimento de sites. Fizemos parte da equipe de design do pavilhão brasileiro na Expo 2025 em Osaka e agora trabalho no site e CMS do estúdio."
+    },
+    {
+      "name": "Arcotech | Arco Educação",
+      "url": "https://linkedin.com/company/arcotecheducacao",
+      "position": "Designer de Produto | Design System Ops",
+      "endDate": "2024",
+      "startDate": "2021",
+      "summary": "No time de Design Ops, escalamos e melhoramos a consistência de plataformas educacionais de múltiplos sistemas de ensino. Fui um dos responsáveis pela criação do Iris DS, um Design System multimarcas para a plataforma whitelabel da Arco."
+    },
+    {
+      "name": "SAS | Arco Educação",
+      "url": "https://www.saseducacao.com.br/",
+      "position": "Designer de Produto | Design System Ops",
+      "endDate": "2021",
+      "startDate": "2018",
+      "summary": "Construí ferramentas para gestores, professores e alunos de todo o Brasil, como Eureka!, Tarefa Online e Plataforma de Avaliações. Desenvolvi o Alfabeto DS, base para o Iris DS da Arcotech."
+    },
+    {
+      "name": "Gadioli",
+      "url": "https://gadioli.com/",
+      "position": "Designer de Interface e Desenvolvedor Front-end",
+      "endDate": "2018",
+      "startDate": "2016",
+      "summary": "Comecei como diretor de arte e migrei para UI/front-end, criando sites para clientes e sistemas internos da agência. Trabalhei na interface e front de projetos como o site da agência e o Portal de Normas Técnicas da CBIC."
+    },
+    {
+      "name": "Freelancer",
+      "position": "Designer Gráfico e Ilustrador",
+      "endDate": "2017",
+      "startDate": "2013",
+      "summary": "Criei identidades visuais e ilustrações em projetos como Fiasco Records e a identidade inicial da Bateu."
+    },
+    {
+      "name": "Faculdade Vale do Jaguaribe",
+      "url": "https://unijaguaribe.edu.br/",
+      "position": "Designer Gráfico e Editor de Vídeo",
+      "endDate": "2015",
+      "startDate": "2014",
+      "summary": "Diagramava materiais institucionais e editava vídeos para mídia indoor."
+    },
+    {
+      "name": "Magazine Guerra",
+      "position": "Designer Gráfico e Designer de Interface",
+      "endDate": "2015",
+      "startDate": "2014",
+      "summary": "Criava encartes e materiais promociais da loja e no design do site."
+    },
+    {
+      "name": "Gráfica Visual",
+      "position": "Designer Gráfico",
+      "endDate": "2012",
+      "startDate": "2012",
+      "summary": "Diagramava materiais para impressão."
+    }
+  ]
+}

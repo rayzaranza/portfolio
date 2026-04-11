@@ -36,6 +36,10 @@ button {
 }
 
 a {
+  display: inline-flex;
+  gap: var(--space-100);
+  color: var(--color-content-secondary);
+  align-items: center;
   text-decoration-line: underline;
   text-decoration-thickness: 1.25px;
   text-underline-offset: 0.25rem;
@@ -47,7 +51,12 @@ a {
 p {
   font-size: var(--font-size-100);
   margin-block-start: var(--space-200);
+  margin-block-end: var(--space-400);
   line-height: var(--line-height-large);
+}
+
+span {
+  font-size: var(--font-size-050);
 }
 
 li {
@@ -74,7 +83,6 @@ section {
   margin-block-end: var(--space-600);
 }
 
-.caption {
-  font-size: var(--font-size-050);
-  color: var(--color-content-secondary);
+ol {
+  margin-inline-start: var(--space-200);
 }

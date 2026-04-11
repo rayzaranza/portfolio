@@ -10,8 +10,7 @@ const pageTitle = frontmatter.title;
 <RootLayout pageTitle={pageTitle}>
   <Wrapper>
     <header class="header">
-      <a href="/"><ArrowLeftIcon /> voltar</a>
-      <span class="caption">Projetos</span>
+      <a href="/"><ArrowLeftIcon />Projetos</a>
       <h1>{pageTitle}</h1>
     </header>
     <main>
@@ -22,6 +21,8 @@ const pageTitle = frontmatter.title;
 
 <style>
   .header {
-    margin-block: var(--space-200);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-200);
   }
 </style>
