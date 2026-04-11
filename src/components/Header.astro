@@ -13,12 +13,12 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
 
     <nav class="menu">
       <a
-        class="link"
+        class="menu-link"
         aria-current={isActive("/projetos") ? "page" : undefined}
         href="/projetos">Projetos</a
       >
       <a
-        class="link"
+        class="menu-link"
         aria-current={isActive("/sobre") ? "page" : undefined}
         href="/sobre">Sobre</a
       >
@@ -40,6 +40,10 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
     font-weight: 700;
     font-size: var(--font-size-200);
     color: var(--color-content);
+    text-decoration-line: none;
+    &:hover {
+      text-decoration-line: underline;
+    }
   }
 
   .info {
@@ -49,19 +53,6 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
     gap: var(--space-050);
   }
 
-  .link {
-    text-decoration-line: none;
-
-    &[aria-current="page"] {
-      color: var(--color-content);
-      text-decoration-line: underline;
-    }
-
-    &:hover {
-      text-decoration-line: underline;
-    }
-  }
-
   .menu {
     display: none;
     align-items: center;
@@ -69,6 +60,21 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
     font-size: var(--font-size-050);
   }
 
+  .menu-link {
+    text-decoration-line: none;
+    border-bottom-width: 2px;
+    border-bottom-style: dotted;
+    border-bottom-color: transparent;
+
+    &[aria-current="page"] {
+      color: var(--color-content);
+      border-bottom-color: currentColor;
+    }
+
+    &:hover {
+      text-decoration-line: underline;
+    }
+  }
   @media screen and (min-width: 576px) {
     .wrapper {
       grid-template-columns: 1fr auto auto;
