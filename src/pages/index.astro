@@ -1,12 +1,12 @@
 ---
-import Page from "@/layouts/Page.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 
 const pageTitle = "Projetos";
 const projects = await getCollection("projects");
 ---
 
-<Page pageTitle={pageTitle}>
+<RootLayout pageTitle={pageTitle}>
   <h1>{pageTitle}</h1>
   <ul>
     {
@@ -19,4 +19,4 @@ const projects = await getCollection("projects");
       ))
     }
   </ul>
-</Page>
+</RootLayout>
