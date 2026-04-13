@@ -16,12 +16,12 @@ const { work } = workData as WorkData;
     <p>{basics.summary}</p>
   </Section>
   <Section>
-    <h1 slot="header">Experiência</h1>
+    <h2 slot="header">Experiência</h2>
     <ul>
       {
         work.map((work) => (
           <li>
-            <h2>{work.name}</h2>
+            <h3>{work.name}</h3>
             <span class="caption">{work.position}</span>
           </li>
         ))
