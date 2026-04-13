@@ -1,9 +1,11 @@
 :root {
   --color-content: oklch(30.32% 0.01 285.9deg);
   --color-content-secondary: oklch(46.8% 0.02 285.73deg);
+  --color-border: oklch(72.94% 0.02 290.25deg);
   --color-content-tertiary: oklch(70.58% 0.01 291.94deg);
   --color-background: oklch(96.94% 0 195.44deg);
   --color-background-hover: oklch(91.89% 0 none);
+  --color-tag: oklch(90.2% 0.01 286.43deg);
   --color-background-active: oklch(87.92% 0 none);
   --color-tag-purple: oklch(93.48% 0.04 302.52deg);
   --color-tag-red: oklch(94.08% 0.03 17.75deg);
@@ -18,20 +20,25 @@
   --space-500: 3rem;
   --space-600: 4rem;
   --space-700: 6rem;
-  --font-size-050: 0.875rem;
   --line-height-large: 1.6;
+  --font-size-050: 0.875rem;
   --font-size-100: 1rem;
   --font-size-200: 1.25rem;
   --font-size-300: 1.5rem;
   --font-size-400: 2rem;
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 16px;
 }
 
 [data-mode="dark"] {
-  --color-content: oklch(98% 0.002 195.44deg);
+  --color-content: oklch(96.94% 0 195.44deg);
   --color-content-secondary: oklch(84.71% 0.01 262.39deg);
+  --color-border: oklch(39.13% 0.02 285.46deg);
   --color-content-tertiary: oklch(66.15% 0.03 263.36deg);
   --color-background: oklch(20.2% 0.01 285.7deg);
   --color-background-hover: oklch(25.2% 0 none);
+  --color-tag: oklch(25.2% 0 none);
   --color-background-active: oklch(34.85% 0 none);
   --color-tag-purple: oklch(28.1% 0.12 294.19deg);
   --color-tag-red: oklch(26.15% 0.08 24.38deg);
