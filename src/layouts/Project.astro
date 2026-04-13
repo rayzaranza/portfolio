@@ -1,17 +1,25 @@
 ---
+import Link from "@/components/Link.astro";
 import RootLayout from "./RootLayout.astro";
 import Wrapper from "./Wrapper.astro";
 import { ArrowLeftIcon } from "astro-feather";
+import TagList from "@/components/TagList.astro";
+import type { CollectionEntry } from "astro:content";
 
-const { frontmatter } = Astro.props;
-const pageTitle = frontmatter.title;
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, tags } = project.data;
 ---
 
-<RootLayout pageTitle={pageTitle}>
-  <Wrapper>
+<RootLayout pageTitle={title}>
+  <Wrapper className="content">
+    <Link href="/projetos"><ArrowLeftIcon />Projetos</Link>
     <header class="header">
-      <a href="/"><ArrowLeftIcon />Projetos</a>
-      <h1>{pageTitle}</h1>
+      <h1>{title}</h1>
+      <TagList tags={tags} />
     </header>
     <main>
       <slot />
@@ -24,5 +32,17 @@ const pageTitle = frontmatter.title;
     display: flex;
     flex-direction: column;
     gap: var(--space-200);
+    margin-top: var(--space-300);
+    margin-bottom: var(--space-400);
+  }
+
+  .content {
+    img {
+      width: 100%;
+    }
+
+    p {
+      max-width: 600px;
+    }
   }
 </style>
