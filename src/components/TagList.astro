@@ -1,5 +1,15 @@
+---
+import Tag from "./Tag.astro";
+
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
 <ul class="tag-list">
-  <slot />
+  {tags.map((tag) => <Tag label={tag} />)}
 </ul>
 
 <style>
@@ -7,5 +17,6 @@
     display: inline-flex;
     gap: var(--space-100);
     align-items: center;
+    flex-wrap: wrap;
   }
 </style>

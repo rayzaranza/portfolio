@@ -32,9 +32,7 @@ const links = [
             <span class="year"> · {year}</span>
           </h3></Link
         >
-        <TagList>
-          {tags.map((tag) => <Tag label={tag} />)}
-        </TagList>
+        <TagList tags={tags} />
         {variant === "list" && <p class="description">{description}</p>}
       </header>
       {
