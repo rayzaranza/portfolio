@@ -1,0 +1,31 @@
+---
+interface Props {
+  variant: "list" | "grid";
+}
+
+const { variant = "list" } = Astro.props;
+---
+
+<ul class:list={["project-list", variant]}>
+  <slot />
+</ul>
+
+<style>
+  .project-list {
+    gap: var(--space-400);
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: 576px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
