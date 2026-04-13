@@ -1,28 +1,28 @@
 ---
 import Wrapper from "@/layouts/Wrapper.astro";
 import ModeToggle from "./ModeToggle.astro";
+import Link from "./Link.astro";
 const isActive = (page: string) => Astro.url.pathname.startsWith(page);
 ---
 
 <header>
   <Wrapper class="wrapper">
     <div class="info">
-      <a class="title" aria-hidden="true" href="/">Ray Zaranza</a>
+      <Link aria-hidden="true" isInline={false} href="/"
+        ><span class="title">Ray Zaranza</span></Link
+      >
       <span>Desenvolvedor · Designer</span>
     </div>
 
     <nav class="menu">
-      <a
-        class="menu-link"
-        aria-current={isActive("/projetos") ? "page" : undefined}
-        href="/projetos">Projetos</a
+      <Link href="/projetos" isActive={isActive("/projetos")} isInline={false}
+        >Projetos</Link
       >
-      <a
-        class="menu-link"
-        aria-current={isActive("/sobre") ? "page" : undefined}
-        href="/sobre">Sobre</a
+      <Link href="/sobre" isActive={isActive("/sobre")} isInline={false}
+        >Sobre</Link
       >
     </nav>
+
     <ModeToggle />
   </Wrapper>
 </header>
@@ -38,7 +38,7 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
 
   .title {
     font-weight: 700;
-    font-size: var(--font-size-200);
+    font-size: var(--font-size-100);
     color: var(--color-content);
     text-decoration-line: none;
     &:hover {
@@ -50,7 +50,6 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: var(--space-050);
   }
 
   .menu {
@@ -58,23 +57,12 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
     align-items: center;
     gap: var(--space-300);
     font-size: var(--font-size-050);
-  }
-
-  .menu-link {
     text-decoration-line: none;
     border-bottom-width: 2px;
     border-bottom-style: dotted;
     border-bottom-color: transparent;
-
-    &[aria-current="page"] {
-      color: var(--color-content);
-      border-bottom-color: currentColor;
-    }
-
-    &:hover {
-      text-decoration-line: underline;
-    }
   }
+
   @media screen and (min-width: 576px) {
     .wrapper {
       grid-template-columns: 1fr auto auto;

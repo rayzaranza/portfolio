@@ -1,30 +1,33 @@
 ---
 import Wrapper from "@/layouts/Wrapper.astro";
+import Link from "./Link.astro";
 ---
 
 <footer class="footer">
   <Wrapper>
     <span class="credits">
-      Esse site foi desenhado no <a target="_blank" href="https://figma.com"
-        >Figma</a
-      >, desenvolvido com <a target="_blank" href="https://astro.build">Astro</a
-      > e hospedado no <a target="_blank" href="https://cloudflare.com"
-        >Cloudflare</a
-      >. Os ícones são do <a target="_blank" href="https://feathericons.com/"
-        >Feather</a
-      > e a fonte é da família <a
-        target="_blank"
-        href="https://github.com/googlefonts/geologica">Geologica</a
+      Esse site foi desenhado no <Link href="https://figma.com" isExternal
+        >Figma</Link
+      >, desenvolvido com <Link href="https://astro.build" isExternal
+        >Astro</Link
+      > e hospedado no
+      <Link href="https://cloudflare.com" isExternal>Cloudflare</Link>. Os
+      ícones são do <Link href="https://feathericons.com/" isExternal
+        >Feather</Link
+      > e a fonte é da família <Link
+        href="https://github.com/googlefonts/geologica"
+        isExternal>Geologica</Link
       >.
     </span>
 
     <div class="footnote">
       <span>2026 © Ray Zaranza</span>
       <nav class="links">
-        <a target="_blank" href="https://linkedin.com/in/rayzaranza">Linkedin</a
+        <Link href="https://linkedin.com/in/rayzaranza" isExternal
+          >Linkedin</Link
         >
-        <a target="_blank" href="https://github.com/rayzaranza">GitHub</a>
-        <a target="_blank" href="mailto:ray@zaranza.com.br">Email</a>
+        <Link href="https://github.com/rayzaranza" isExternal>GitHub</Link>
+        <Link href="mailto:ray@zaranza.com.br">Email</Link>
       </nav>
     </div>
   </Wrapper>
@@ -39,7 +42,7 @@ import Wrapper from "@/layouts/Wrapper.astro";
 
   .credits {
     display: block;
-    max-width: 580px;
+    max-width: 588px;
     margin-bottom: var(--space-600);
     line-height: var(--line-height-large);
   }
