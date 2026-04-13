@@ -24,6 +24,7 @@ const {
   href={href}
   target={isExternal ? "_blank" : undefined}
   rel={isExternal ? "noopener noreferrer" : undefined}
+  data-astro-prefetch={isExternal && "false"}
 >
   <slot />
 </a>

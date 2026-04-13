@@ -5,13 +5,15 @@ import Wrapper from "./Wrapper.astro";
 import { ArrowLeftIcon } from "astro-feather";
 import TagList from "@/components/TagList.astro";
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
 interface Props {
   project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
-const { title, tags } = project.data;
+const { title, tags, description, github, website, cover, alt, year } =
+  project.data;
 ---
 
 <RootLayout pageTitle={title}>
@@ -19,6 +21,7 @@ const { title, tags } = project.data;
     <Link href="/projetos"><ArrowLeftIcon />Projetos</Link>
     <header class="header">
       <h1>{title}</h1>
+      <Image transition:name={`${project.id}-cover`} src={cover} alt={alt} />
       <TagList tags={tags} />
     </header>
     <main>

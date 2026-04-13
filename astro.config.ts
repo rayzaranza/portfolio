@@ -35,6 +35,9 @@ export default defineConfig({
   ],
 
   trailingSlash: "never",
+  prefetch: {
+    prefetchAll: true,
+  },
 
   build: {
     format: "file",
