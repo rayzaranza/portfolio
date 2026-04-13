@@ -51,8 +51,7 @@ button,
 
 p {
   font-size: var(--font-size-100);
-  margin-block-start: var(--space-200);
-  margin-block-end: var(--space-400);
+  margin-block-end: var(--space-300);
   line-height: var(--line-height-large);
 }
 
@@ -61,29 +60,37 @@ span {
 }
 
 li {
-  margin-block-end: var(--space-400);
   font-size: var(--font-size-100);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
 }
 
 h1 {
   font-size: var(--font-size-400);
-  margin-block-end: var(--space-200);
 }
 
 h2 {
   font-size: var(--font-size-300);
-  margin-block-end: var(--space-200);
 }
 
 h3 {
   font-size: var(--font-size-200);
-  margin-block-end: var(--space-100);
-}
-
-section {
-  margin-block-end: var(--space-600);
 }
 
 ol {
   margin-inline-start: var(--space-200);
+}
+
+img {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.bordered {
+  border: 1px solid var(--color-border);
 }
