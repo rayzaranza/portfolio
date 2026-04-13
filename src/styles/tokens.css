@@ -1,6 +1,6 @@
 :root {
   --color-content: oklch(30.32% 0.01 285.9deg);
-  --color-content-secondary: oklch(46.8% 0.02 285.73deg);
+  --color-content-secondary: oklch(42% 0.02 285.73deg);
   --color-border: oklch(72.94% 0.02 290.25deg);
   --color-content-tertiary: oklch(70.58% 0.01 291.94deg);
   --color-background: oklch(96.94% 0 195.44deg);
@@ -23,7 +23,7 @@
   --line-height-large: 1.6;
   --font-size-050: 0.875rem;
   --font-size-100: 1rem;
-  --font-size-200: 1.2rem;
+  --font-size-200: 1.125rem;
   --font-size-300: 1.5rem;
   --font-size-400: 2rem;
   --radius-small: 4px;
