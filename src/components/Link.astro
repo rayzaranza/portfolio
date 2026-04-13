@@ -1,0 +1,67 @@
+---
+type Route = "/" | "/projetos" | `projetos/${string}` | "/sobre";
+
+interface Props {
+  href: Route | string;
+  className?: string;
+  isExternal?: boolean;
+  isActive?: boolean;
+  isInline?: boolean;
+}
+
+const {
+  href,
+  isExternal = false,
+  isActive = false,
+  isInline = true,
+  className,
+} = Astro.props;
+---
+
+<a
+  class:list={["link", isInline && "inline", className]}
+  aria-current={isActive}
+  href={href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+>
+  <slot />
+</a>
+
+<style>
+  .link {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-050);
+    gap: var(--space-050);
+    text-decoration-line: none;
+    text-underline-offset: 0.3rem;
+    text-decoration-thickness: 1px;
+    font-weight: 500;
+    text-decoration-style: solid;
+
+    &:hover {
+      color: var(--color-content);
+      text-decoration-line: underline;
+    }
+  }
+
+  .link[aria-current="true"] {
+    color: var(--color-content);
+    text-decoration-style: dashed;
+    text-decoration-line: underline;
+
+    &:hover {
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+  }
+
+  .inline {
+    text-decoration-line: underline;
+
+    &:hover {
+      text-decoration-line: none;
+    }
+  }
+</style>

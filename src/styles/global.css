@@ -9,16 +9,26 @@
   overflow-y: scroll;
 }
 
-button {
-  display: flex;
+button,
+.button {
+  display: inline-flex;
+  flex-shrink: 0;
   background-color: var(--color-background);
   gap: var(--space-100);
   align-items: center;
   justify-content: center;
-  height: 48px;
+  height: 44px;
   padding-inline: var(--space-200);
+  font-size: var(--font-size-050);
   border-radius: 16px;
   corner-shape: squircle;
+  text-decoration: none;
+  color: var(--color-content-secondary);
+
+  & > svg {
+    opacity: 0.8;
+    width: var(--font-size-200);
+  }
 
   &.square {
     width: 48px;
@@ -28,23 +38,14 @@ button {
   &:hover {
     background-color: var(--color-background-hover);
     color: var(--color-content);
+
+    & > svg {
+      opacity: 1;
+    }
   }
 
   &:active {
     background-color: var(--color-background-active);
-  }
-}
-
-a {
-  display: inline-flex;
-  gap: var(--space-100);
-  color: var(--color-content-secondary);
-  align-items: center;
-  text-decoration-line: underline;
-  text-decoration-thickness: 1.25px;
-  text-underline-offset: 0.25rem;
-  &:hover {
-    color: var(--color-content);
   }
 }
 
