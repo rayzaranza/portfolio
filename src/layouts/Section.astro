@@ -1,0 +1,58 @@
+---
+import Wrapper from "@/layouts/Wrapper.astro";
+---
+
+<section>
+  <Wrapper className="section">
+    <header class="header">
+      <slot name="header" />
+      {
+        Astro.slots.has("action") && (
+          <div class="action-header">
+            <slot name="action" />
+          </div>
+        )
+      }
+    </header>
+    <slot />
+    {
+      Astro.slots.has("action") && (
+        <div class="action-footer">
+          <slot name="action" />
+        </div>
+      )
+    }
+  </Wrapper>
+</section>
+
+<style>
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--space-300);
+  }
+
+  .header {
+    display: flex;
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .action-header {
+    display: none;
+  }
+
+  .action-footer {
+    display: flex;
+  }
+
+  @media screen and (min-width: 576px) {
+    .action-header {
+      display: flex;
+    }
+    .action-footer {
+      display: none;
+    }
+  }
+</style>
