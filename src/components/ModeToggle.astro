@@ -2,11 +2,7 @@
 import { SunIcon, MoonIcon } from "astro-feather";
 ---
 
-<button
-  class="button square"
-  aria-label="Alterar modo de cores"
-  data-mode-toggle
->
+<button class="square" aria-label="Alterar modo de cores" data-mode-toggle>
   <span data-icon="dark"><MoonIcon /></span>
   <span data-icon="light"><SunIcon /></span>
 </button>
@@ -27,10 +23,10 @@ import { SunIcon, MoonIcon } from "astro-feather";
 </script>
 
 <style>
-  :root[data-mode="dark"] [data-icon="dark"] {
+  :root[data-mode="dark"] [data-icon="light"] {
     display: none;
   }
-  :root[data-mode="light"] [data-icon="light"] {
+  :root[data-mode="light"] [data-icon="dark"] {
     display: none;
   }
 </style>
