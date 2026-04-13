@@ -1,0 +1,33 @@
+---
+interface Props {
+  label: string;
+}
+
+type ColorVariant = "purple" | "green" | "yellow" | "red";
+const variants: Record<string, ColorVariant> = {
+  "design de produto": "purple",
+  "front-end": "green",
+  arquitetura: "yellow",
+  "design ops": "red",
+};
+const { label } = Astro.props;
+const variant = variants[label] ?? "purple";
+---
+
+<li>
+  <span data-variant={variant} class="tag">
+    {label}
+  </span>
+</li>
+
+<style>
+  .tag {
+    color: var(--color-content);
+    background-color: var(--color-tag);
+    border-radius: var(--radius-small);
+    padding-inline: var(--space-100);
+    padding-block: var(--space-050);
+    font-size: var(--font-size-050);
+    corner-shape: squircle;
+  }
+</style>
