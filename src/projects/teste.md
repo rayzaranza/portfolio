@@ -1,10 +1,12 @@
 ---
-title: "Teste"
-slug: "test"
-image:
-  url: "https://docs.astro.build/assets/rose.webp"
-  alt: "Captura de tela do site da Gadioli"
-tags: ["ux/ui", "front-end", "design ops"]
+title: fazfaz
+year: 2026
+description: Criação da interface e front-end na Gadioli. Com autenticação, fórum e catálogo de normas da ABNT. Desenvolvido em Vue.
+cover: ../assets/images/covers/cover-fazfaz.png
+alt: Captura de tela do site da Gadioli
+tags: [ux/ui, front-end, design ops]
+website: https://gadioli.com
+github: https://github.com/rayzaranza/fazfaz
 ---
 
 sddsd asd das
