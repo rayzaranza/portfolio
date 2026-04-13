@@ -11,11 +11,13 @@ import Link from "@/components/Link.astro";
 
 const { basics } = aboutData as AboutData;
 const projects = await getCollection("projects");
+const pageTitle = "Ray Zaranza | Desenvolvedor front-end · Designer de UI";
 ---
 
-<RootLayout pageTitle="Ray Zaranza | Desenvolvedor front-end · Designer de UI">
+<RootLayout pageTitle={pageTitle}>
+  <h1 class="visually-hidden">{pageTitle}</h1>
   <Section>
-    <h1 slot="header">Últimos projetos</h1>
+    <h2 slot="header">Últimos projetos</h2>
     <Link
       slot="action"
       className="button bordered"
@@ -31,10 +33,12 @@ const projects = await getCollection("projects");
     </ProjectList>
   </Section>
   <Section>
-    <h1 slot="header">Sobre</h1>
-    <p>{basics.summary}</p>
-    <Link className="button bordered" href="/sobre" isInline={false}
-      >Perfil completo <ArrowRightIcon /></Link
-    >
+    <h2 slot="header">Sobre</h2>
+    <div>
+      <p>{basics.summary}</p>
+      <Link className="button bordered" href="/sobre" isInline={false}
+        >Perfil completo <ArrowRightIcon /></Link
+      >
+    </div>
   </Section>
 </RootLayout>

@@ -1,6 +1,8 @@
 import { defineConfig, fontProviders } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 
+import mdx from "@astrojs/mdx";
+
 export default defineConfig({
   fonts: [
     {
@@ -31,9 +33,13 @@ export default defineConfig({
       },
     },
   ],
+
   trailingSlash: "never",
+
   build: {
     format: "file",
   },
+
   adapter: cloudflare({ imageService: "cloudflare" }),
+  integrations: [mdx()],
 });
