@@ -1,33 +1,40 @@
 ---
+import ProjectCard from "@/components/ProjectCard.astro";
+import ProjectList from "@/components/ProjectList.astro";
 import aboutData from "@/data/about.json";
 import type { AboutData } from "@/data/types";
 import RootLayout from "@/layouts/RootLayout.astro";
-import Wrapper from "@/layouts/Wrapper.astro";
+import { ArrowRightIcon } from "astro-feather";
 import { getCollection } from "astro:content";
+import Section from "@/layouts/Section.astro";
+import Link from "@/components/Link.astro";
 
 const { basics } = aboutData as AboutData;
 const projects = await getCollection("projects");
 ---
 
 <RootLayout pageTitle="Ray Zaranza | Desenvolvedor front-end · Designer de UI">
-  <Wrapper>
-    <section>
-      <h2>Projetos</h2>
-      <ul>
-        {
-          projects.map(({ data }) => (
-            <li>
-              <a href={`/projetos/${data.slug}`}>{data.title}</a>
-            </li>
-          ))
-        }
-      </ul>
-      <a href="/projetos">Todos os projetos</a>
-    </section>
-    <section>
-      <h2>Sobre</h2>
-      <p>{basics.summary}</p>
-      <a href="/sobre">Perfil completo</a>
-    </section>
-  </Wrapper>
+  <Section>
+    <h1 slot="header">Últimos projetos</h1>
+    <Link
+      slot="action"
+      className="button bordered"
+      href="/projetos"
+      isInline={false}>Todos os projetos <ArrowRightIcon /></Link
+    >
+    <ProjectList variant="grid">
+      {
+        projects.map((project) => (
+          <ProjectCard project={project} variant="grid" />
+        ))
+      }
+    </ProjectList>
+  </Section>
+  <Section>
+    <h1 slot="header">Sobre</h1>
+    <p>{basics.summary}</p>
+    <Link className="button bordered" href="/sobre" isInline={false}
+      >Perfil completo <ArrowRightIcon /></Link
+    >
+  </Section>
 </RootLayout>

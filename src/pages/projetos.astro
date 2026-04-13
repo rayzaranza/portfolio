@@ -1,27 +1,19 @@
 ---
-import RootLayout from "@/layouts/RootLayout.astro";
-import Wrapper from "@/layouts/Wrapper.astro";
 import { getCollection } from "astro:content";
+import RootLayout from "@/layouts/RootLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import ProjectList from "@/components/ProjectList.astro";
+import Section from "@/layouts/Section.astro";
 
 const pageTitle = "Projetos";
 const projects = await getCollection("projects");
 ---
 
 <RootLayout pageTitle={pageTitle}>
-  <Wrapper>
-    <h1>{pageTitle}</h1>
-    <ul>
-      {
-        projects.map((project) => (
-          <li>
-            <article>
-              <a href={`/projetos/${project.data.slug}`}>
-                {project.data.title}
-              </a>
-            </article>
-          </li>
-        ))
-      }
-    </ul>
-  </Wrapper>
+  <Section>
+    <h1 slot="header">{pageTitle}</h1>
+    <ProjectList variant="list">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </ProjectList>
+  </Section>
 </RootLayout>

@@ -3,7 +3,7 @@ import type { AboutData, WorkData } from "@/data/types";
 import aboutData from "@/data/about.json";
 import workData from "@/data/work.json";
 import RootLayout from "@/layouts/RootLayout.astro";
-import Wrapper from "@/layouts/Wrapper.astro";
+import Section from "@/layouts/Section.astro";
 const pageTitle = "Sobre";
 
 const { basics } = aboutData as AboutData;
@@ -11,23 +11,21 @@ const { work } = workData as WorkData;
 ---
 
 <RootLayout pageTitle={pageTitle}>
-  <Wrapper>
-    <section>
-      <h1>Sobre</h1>
-      <p>{basics.summary}</p>
-    </section>
-    <section>
-      <h2>Experiência</h2>
-      <ul>
-        {
-          work.map((work) => (
-            <li>
-              <h3>{work.name}</h3>
-              <span class="caption">{work.position}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </Wrapper>
+  <Section>
+    <h1 slot="header">Sobre</h1>
+    <p>{basics.summary}</p>
+  </Section>
+  <Section>
+    <h1 slot="header">Experiência</h1>
+    <ul>
+      {
+        work.map((work) => (
+          <li>
+            <h2>{work.name}</h2>
+            <span class="caption">{work.position}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
 </RootLayout>
