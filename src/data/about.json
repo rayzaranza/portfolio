@@ -5,17 +5,22 @@
     "url": "https://rayzaranza.com.br",
     "name": "Ray Zaranza",
     "email": "rayzaranza@gmail.com",
-    "label": "Designer de Produto",
+    "label": "Desenvolvedor front-end · Designer de produto",
     "location": {
       "city": "Fortaleza",
       "region": "Ceará",
       "countryCode": "BR"
     },
-    "image": "/profile.jpg",
+    "image": "../assets/images/profile.jpg",
     "profiles": [
       {
-        "network": "Linkedin",
+        "network": "LinkedIn",
         "url": "https://linkedin.com/in/rayzaranza",
+        "username": "rayzaranza"
+      },
+      {
+        "network": "GitHub",
+        "url": "https://github.com/rayzaranza",
         "username": "rayzaranza"
       }
     ],
