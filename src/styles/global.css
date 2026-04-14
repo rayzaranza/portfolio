@@ -132,3 +132,9 @@ label {
   display: block;
   margin-bottom: var(--space-100);
 }
+
+.caption {
+  color: var(--color-content-secondary);
+  font-size: var(--font-size-050);
+  font-weight: 400;
+}
