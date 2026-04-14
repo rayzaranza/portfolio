@@ -1,9 +1,13 @@
 ---
 import Wrapper from "@/layouts/Wrapper.astro";
+interface Props {
+  className?: string;
+}
+const { className } = Astro.props;
 ---
 
-<section>
-  <Wrapper className="section">
+<section class:list={["section", className]}>
+  <Wrapper>
     <header class="header">
       <slot name="header" />
       {
@@ -26,7 +30,7 @@ import Wrapper from "@/layouts/Wrapper.astro";
 </section>
 
 <style>
-  .section {
+  .section > :global(.wrapper) {
     display: flex;
     flex-direction: column;
     align-items: start;

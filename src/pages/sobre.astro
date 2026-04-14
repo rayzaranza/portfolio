@@ -4,28 +4,139 @@ import aboutData from "@/data/about.json";
 import workData from "@/data/work.json";
 import RootLayout from "@/layouts/RootLayout.astro";
 import Section from "@/layouts/Section.astro";
+import Link from "@/components/Link.astro";
+import Image from "astro/components/Image.astro";
+import { GithubIcon, LinkedinIcon, MailIcon, MapPinIcon } from "astro-feather";
 const pageTitle = "Sobre";
 
-const { basics } = aboutData as AboutData;
+const {
+  basics: { name, email, location, profiles, summary, label },
+} = aboutData as AboutData;
 const { work } = workData as WorkData;
+import profileImage from "@/assets/images/profile.jpg";
 ---
 
 <RootLayout pageTitle={pageTitle}>
-  <Section>
+  <Section className="about">
     <h1 slot="header">Sobre</h1>
-    <p>{basics.summary}</p>
+    <div class="intro">
+      <div class="profile">
+        <Image
+          class="avatar"
+          src={profileImage}
+          alt="foto de perfil"
+          width={128}
+          height={128}
+        />
+        <div class="info">
+          <span class="name">{name}</span>
+          <span class="caption">{label}</span>
+          <span class="caption location"
+            ><MapPinIcon size={18} />
+            {location.city}, {location.region}, {location.countryCode}</span
+          >
+          <ul class="links">
+            <li>
+              <Link href={`mailto:${email}`}><MailIcon size={18} /> Email</Link>
+            </li>
+            {
+              profiles.map((profile) => (
+                <li>
+                  <Link isExternal href={profile.url}>
+                    {profile.network === "GitHub" && <GithubIcon size={18} />}
+                    {profile.network === "LinkedIn" && (
+                      <LinkedinIcon size={18} />
+                    )}
+                    {profile.network}
+                  </Link>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="summary">{summary}</p>
   </Section>
+
   <Section>
     <h2 slot="header">Experiência</h2>
-    <ul>
+    <ul class="work-list">
       {
         work.map((work) => (
           <li>
-            <h3>{work.name}</h3>
+            <header>
+              <h3 class="title">
+                {work.name}
+                <span class="caption">
+                  · {work.startDate}—{work.endDate ?? "atual"}
+                </span>
+              </h3>
+            </header>
             <span class="caption">{work.position}</span>
+            <p class="work-description">{work.summary}</p>
           </li>
         ))
       }
     </ul>
   </Section>
 </RootLayout>
+
+<style>
+  .avatar {
+    border-radius: 128px;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+  }
+
+  .profile {
+    display: flex;
+    gap: var(--space-200);
+    flex-direction: column;
+    @media screen and (min-width: 576px) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  .links {
+    display: flex;
+    gap: var(--space-200);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-100);
+  }
+
+  .location {
+    margin-top: var(--space-050);
+    display: flex;
+    align-items: center;
+    gap: var(--space-050);
+  }
+
+  .work-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-400);
+  }
+
+  .work-description {
+    margin-block: var(--space-200);
+    font-size: var(--font-size-100);
+    text-wrap-style: balance;
+  }
+
+  .title {
+    font-size: var(--font-size-700);
+    margin-bottom: var(--space-050);
+    color: var(--color-content);
+  }
+
+  .name {
+    font-size: var(--font-size-200);
+    font-weight: 600;
+  }
+</style>
