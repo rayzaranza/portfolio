@@ -1,0 +1,25 @@
+---
+import ProjectImage from "./ProjectImage.astro";
+
+interface GalleryImage {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  images: GalleryImage[];
+}
+
+const { images } = Astro.props;
+---
+
+<ul class="gallery">
+  {
+    images.map((image) => (
+      <li>
+        <ProjectImage src={image.src} alt={image.alt} caption={image.caption} />
+      </li>
+    ))
+  }
+</ul>
