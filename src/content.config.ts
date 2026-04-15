@@ -17,6 +17,19 @@ const projects = defineCollection({
       year: z.number(),
       github: z.url().optional(),
       website: z.url().optional(),
+      client: z.string().optional(),
+      company: z.string().optional(),
+      contributors: z
+        .array(
+          z
+            .object({
+              name: z.string(),
+              role: z.string(),
+              url: z.url().optional(),
+            })
+            .optional(),
+        )
+        .optional(),
     }),
 });
 
