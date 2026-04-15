@@ -1,4 +1,6 @@
 ---
+import { ChevronUpIcon } from "astro-feather";
+
 type Route = "/" | "/projetos" | `projetos/${string}` | "/sobre";
 
 interface Props {
@@ -27,6 +29,13 @@ const {
   data-astro-prefetch={isExternal && "false"}
 >
   <slot />
+  {
+    isActive && (
+      <span class="active-indicator">
+        <ChevronUpIcon size={16} />
+      </span>
+    )
+  }
 </a>
 
 <style>
@@ -38,6 +47,7 @@ const {
     gap: var(--space-050);
     text-decoration-line: none;
     font-weight: 500;
+    position: relative;
 
     &:hover {
       color: var(--color-content);
@@ -47,13 +57,16 @@ const {
 
   .link[aria-current="true"] {
     color: var(--color-content);
-    text-decoration-style: dashed;
-    text-decoration-line: underline;
+    text-decoration: none;
+  }
 
-    &:hover {
-      text-decoration-line: underline;
-      text-decoration-style: solid;
-    }
+  .active-indicator {
+    position: absolute;
+    top: var(--space-200);
+    display: flex;
+    justify-content: center;
+    inset-inline: 0;
+    color: var(--color-content-secondary);
   }
 
   .inline {
