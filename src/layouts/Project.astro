@@ -21,8 +21,8 @@ const { title, tags, description, github, website, cover, alt, year } =
     <Link href="/projetos"><ArrowLeftIcon />Projetos</Link>
     <header class="header">
       <h1>{title}</h1>
-      <Image transition:name={`${project.id}-cover`} src={cover} alt={alt} />
       <TagList tags={tags} />
+      <Image transition:name={`${project.id}-cover`} src={cover} alt={alt} />
     </header>
     <main>
       <slot />
