@@ -1,5 +1,6 @@
 ---
 import { ChevronUpIcon } from "astro-feather";
+import { isActionError } from "astro:actions";
 
 type Route = "/" | "/projetos" | `projetos/${string}` | "/sobre";
 
@@ -29,13 +30,6 @@ const {
   data-astro-prefetch={isExternal && "false"}
 >
   <slot />
-  {
-    isActive && (
-      <span class="active-indicator">
-        <ChevronUpIcon size={16} />
-      </span>
-    )
-  }
 </a>
 
 <style>
@@ -57,16 +51,21 @@ const {
 
   .link[aria-current="true"] {
     color: var(--color-content);
-    text-decoration: none;
+    font-weight: 600;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.3px;
+    text-decoration-line: underline;
   }
 
   .active-indicator {
     position: absolute;
-    top: var(--space-200);
     display: flex;
     justify-content: center;
-    inset-inline: 0;
     color: var(--color-content-secondary);
+    top: var(--space-200);
+    inset-inline: 0;
+    left: 0px;
+    rotate: 0deg;
   }
 
   .inline {
