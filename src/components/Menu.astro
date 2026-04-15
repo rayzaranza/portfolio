@@ -86,6 +86,7 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
     position: absolute;
     top: var(--space-200);
     right: var(--space-050);
+    display: none;
   }
 
   .menu:has([aria-expanded="true"]) {
@@ -100,6 +101,10 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
 
     .backdrop {
       display: block;
+    }
+
+    #close-menu {
+      display: flex;
     }
 
     :global(.mode-toggle) {
