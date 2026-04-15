@@ -134,3 +134,7 @@ label {
   font-size: var(--font-size-050);
   font-weight: 400;
 }
+
+.overlay {
+  overflow: hidden;
+}
