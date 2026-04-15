@@ -1,4 +1,7 @@
 ---
+import { ChevronUpIcon } from "astro-feather";
+import { isActionError } from "astro:actions";
+
 type Route = "/" | "/projetos" | `projetos/${string}` | "/sobre";
 
 interface Props {
@@ -38,6 +41,7 @@ const {
     gap: var(--space-050);
     text-decoration-line: none;
     font-weight: 500;
+    position: relative;
 
     &:hover {
       color: var(--color-content);
@@ -47,13 +51,21 @@ const {
 
   .link[aria-current="true"] {
     color: var(--color-content);
-    text-decoration-style: dashed;
+    font-weight: 600;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.3px;
     text-decoration-line: underline;
+  }
 
-    &:hover {
-      text-decoration-line: underline;
-      text-decoration-style: solid;
-    }
+  .active-indicator {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    color: var(--color-content-secondary);
+    top: var(--space-200);
+    inset-inline: 0;
+    left: 0px;
+    rotate: 0deg;
   }
 
   .inline {

@@ -15,20 +15,21 @@ button,
   display: inline-flex;
   flex-shrink: 0;
   background-color: var(--color-background);
+  font-family: var(--font-family);
   gap: var(--space-100);
   align-items: center;
   justify-content: center;
   height: 44px;
   padding-inline: var(--space-200);
+  font-weight: 500;
   font-size: var(--font-size-050);
-  border-radius: 16px;
-  corner-shape: squircle;
+  border-radius: var(--radius-medium);
   text-decoration: none !important;
   color: var(--color-content-secondary);
 
   & > svg {
-    opacity: 0.8;
     width: var(--font-size-200);
+    flex-shrink: 0;
   }
 
   &.square {
@@ -39,11 +40,6 @@ button,
   &:hover {
     background-color: var(--color-background-hover);
     color: var(--color-content);
-    border: 1px solid var(--color-border);
-
-    & > svg {
-      opacity: 1;
-    }
   }
 
   &:active {
@@ -137,4 +133,8 @@ label {
   color: var(--color-content-secondary);
   font-size: var(--font-size-050);
   font-weight: 400;
+}
+
+.overlay {
+  overflow: hidden;
 }
