@@ -17,67 +17,164 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, tags, description, github, website, cover, alt, year } =
-  project.data;
+const {
+  title,
+  tags,
+  description,
+  github,
+  website,
+  cover,
+  alt,
+  year,
+  contributors,
+  client,
+  company,
+} = project.data;
 ---
 
 <RootLayout pageTitle={title}>
-  <Wrapper className="content">
-    <Link href="/projetos"><ArrowLeftIcon />Projetos</Link>
+  <Wrapper>
     <header class="header">
+      <Link href="/projetos"><ArrowLeftIcon />Projetos</Link>
       <h1>{title}</h1>
       <TagList tags={tags} />
       <Image
         class="cover"
+        loading="eager"
         transition:name={`${project.id}-cover`}
         src={cover}
         alt={alt}
       />
     </header>
+
     <main>
-      <p>{description}</p>
-      {
-        github && (
-          <Link className="button bordered" href={github} isExternal>
-            <GithubIcon /> GitHub <ExternalLinkIcon size={16} />
-          </Link>
-        )
-      }
-      {
-        website && (
-          <Link className="button bordered" href={website} isExternal>
-            <GlobeIcon /> Site <ExternalLinkIcon size={16} />
-          </Link>
-        )
-      }
-      <slot />
+      <section class="intro">
+        <div>
+          <span class="label">Descrição do projeto</span>
+          <p>{description}</p>
+
+          <ul class="links">
+            {
+              github && (
+                <li>
+                  <Link className="button bordered" href={github} isExternal>
+                    <GithubIcon /> GitHub <ExternalLinkIcon size={16} />
+                  </Link>
+                </li>
+              )
+            }
+            {
+              website && (
+                <li>
+                  <Link className="button bordered" href={website} isExternal>
+                    <GlobeIcon /> Site <ExternalLinkIcon size={16} />
+                  </Link>
+                </li>
+              )
+            }
+          </ul>
+        </div>
+
+        <dl class="details">
+          <div>
+            <dt>Ano</dt>
+            <dd>{year}</dd>
+          </div>
+
+          {
+            company && (
+              <div>
+                <dt>Empresa</dt>
+                <dd>{company}</dd>
+              </div>
+            )
+          }
+
+          {
+            client && (
+              <div>
+                <dt>Cliente</dt>
+                <dd>{client}</dd>
+              </div>
+            )
+          }
+
+          {
+            contributors?.map(
+              (contributor) =>
+                contributor && (
+                  <div>
+                    <dt>{contributor.role}</dt>
+                    <dd>{contributor?.name}</dd>
+                  </div>
+                ),
+            )
+          }
+        </dl>
+      </section>
+
+      <section class="content">
+        <h2>Detalhes do projeto</h2>
+        <div>
+          <slot />
+        </div>
+      </section>
     </main>
   </Wrapper>
+
+  <style>
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-200);
+    }
+
+    .cover {
+      margin-top: var(--space-100);
+      margin-bottom: var(--space-400);
+      height: 180px;
+      border: 1px solid var(--color-border);
+      @media screen and (min-width: 576px) {
+        height: 400px;
+      }
+    }
+
+    .content {
+      margin-top: var(--space-200);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-200);
+
+      img {
+        width: 100%;
+      }
+
+      p {
+        max-width: 600px;
+      }
+    }
+
+    .links {
+      display: flex;
+      gap: var(--space-100);
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: var(--space-400);
+      column-gap: var(--space-200);
+    }
+
+    .intro {
+      display: grid;
+      margin-bottom: var(--space-600);
+      gap: var(--space-400);
+
+      @media screen and (min-width: 720px) {
+        grid-template-columns: 2fr 1fr;
+        gap: var(--space-700);
+      }
+    }
+  </style>
 </RootLayout>
-
-<style>
-  .header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-200);
-    margin-top: var(--space-300);
-    margin-bottom: var(--space-400);
-  }
-
-  .cover {
-    height: 180px;
-    @media screen and (min-width: 576px) {
-      height: 400px;
-    }
-  }
-
-  .content {
-    img {
-      width: 100%;
-    }
-
-    p {
-      max-width: 600px;
-    }
-  }
-</style>

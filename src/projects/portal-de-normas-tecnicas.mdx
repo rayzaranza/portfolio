@@ -6,14 +6,31 @@ cover: ../assets/images/covers/cover-portal-normas-tecnicas.png
 alt: Captura de tela do site da Gadioli
 tags: [ux/ui, front-end]
 website: https://gadioli.com
+company: Gadioli
+client: CBIC
+contributors:
+  - name: Jonas Feitosa
+    role: Back-end
 ---
 
 import { Image } from "astro:assets";
+import Gallery from "@/components/Gallery.astro";
 import ProjectImage from "@/components/ProjectImage.astro";
 import cover from "@/assets/images/covers/cover-eureka.png";
+export const images = [
+  { src: cover, alt: "askdhagd" },
+  { src: cover, alt: "askdhagd" },
+  { src: cover, alt: "askdhagd" },
+];
 
 Landing page e área logada com fórum catálogo de normas da ABNT, fórum de discussões e histórico de alterações. Fui responsável pelo design da interface e do front-end, desenvolvido em Vue.
 
 Escrevi o processo completo de construção [nesse artigo](https://gmail.com).
 
-<ProjectImage alt="asdads" src={cover} />
+<Gallery images={images} />
+
+Landing page e área logada com fórum catálogo de normas da ABNT, fórum de
+discussões e histórico de alterações. Fui responsável pelo design da interface e
+do front-end, desenvolvido em Vue.
+
+<Gallery images={images} />
