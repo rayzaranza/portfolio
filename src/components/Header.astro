@@ -2,38 +2,31 @@
 import Wrapper from "@/layouts/Wrapper.astro";
 import ModeToggle from "./ModeToggle.astro";
 import Link from "./Link.astro";
-const isActive = (page: string) => Astro.url.pathname.startsWith(page);
+import Menu from "./Menu.astro";
 ---
 
-<header>
-  <Wrapper class="wrapper">
+<header class="header">
+  <Wrapper>
     <div class="info">
       <Link aria-hidden="true" isInline={false} href="/"
         ><span class="title">Ray Zaranza</span></Link
       >
-      <span>Desenvolvedor · Designer</span>
+      <span class="caption">Desenvolvedor · Designer</span>
     </div>
-
-    <nav class="menu">
-      <Link href="/projetos" isActive={isActive("/projetos")} isInline={false}
-        >Projetos</Link
-      >
-      <Link href="/sobre" isActive={isActive("/sobre")} isInline={false}
-        >Sobre</Link
-      >
-    </nav>
-
-    <ModeToggle />
+    <Menu client:load />
   </Wrapper>
 </header>
 
 <style>
-  .wrapper {
+  .header > :global(.wrapper) {
     display: grid;
-    grid-template-columns: 1fr auto;
     align-items: center;
     gap: var(--space-200);
     color: var(--color-content-secondary);
+    grid-template-columns: 1fr auto;
+    @media screen and (min-width: 576px) {
+      grid-template-columns: 1fr auto auto;
+    }
   }
 
   .title {
@@ -50,26 +43,5 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
     display: flex;
     flex-direction: column;
     align-items: start;
-  }
-
-  .menu {
-    display: none;
-    align-items: center;
-    gap: var(--space-300);
-    font-size: var(--font-size-050);
-    text-decoration-line: none;
-    border-bottom-width: 2px;
-    border-bottom-style: dotted;
-    border-bottom-color: transparent;
-  }
-
-  @media screen and (min-width: 576px) {
-    .wrapper {
-      grid-template-columns: 1fr auto auto;
-    }
-
-    .menu {
-      display: flex;
-    }
   }
 </style>

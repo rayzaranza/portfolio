@@ -1,0 +1,136 @@
+---
+import { MenuIcon, XIcon } from "astro-feather";
+import Link from "./Link.astro";
+import ModeToggle from "./ModeToggle.astro";
+const isActive = (page: string) => Astro.url.pathname.startsWith(page);
+---
+
+<div class="menu">
+  <button aria-expanded="false" aria-controls="main-menu" id="menu-toggle">
+    <MenuIcon size={20} />
+    Menu
+  </button>
+
+  <div class="actions">
+    <button id="close-menu" aria-expanded="false" aria-controls="close-menu"
+      ><XIcon />
+    </button>
+    <nav class="links">
+      <Link
+        className="menu-link"
+        href="/projetos"
+        isActive={isActive("/projetos")}
+        isInline={false}>Projetos</Link
+      >
+      <Link
+        href="/sobre"
+        className="menu-link"
+        isActive={isActive("/sobre")}
+        isInline={false}>Sobre</Link
+      >
+    </nav>
+    <ModeToggle />
+  </div>
+  <div class="backdrop"></div>
+</div>
+
+<!--  -->
+
+<style>
+  .actions {
+    display: none;
+    padding: var(--space-300);
+    padding-top: var(--space-100);
+    inset-inline: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: start;
+    position: fixed;
+    border-radius: var(--radius-large);
+    border-end-end-radius: 0;
+    border-end-start-radius: 0;
+    z-index: 10;
+    background-color: var(--color-background);
+    box-shadow: 0 0px 48px 0px rgba(0, 0, 0, 0.75);
+    gap: var(--space-200);
+
+    @media screen and (min-width: 576px) {
+      padding: 0;
+      border-radius: 0;
+      background-color: unset;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: static;
+      flex-direction: row;
+      gap: var(--space-200);
+    }
+  }
+
+  #menu-toggle {
+    flex-direction: column;
+    height: auto;
+    padding: var(--space-100);
+    position: relative;
+    right: calc(var(--space-100) * -1);
+    gap: 0.1rem;
+    font-size: 0.75rem;
+
+    @media screen and (min-width: 576px) {
+      display: none;
+    }
+  }
+
+  #close-menu {
+    position: absolute;
+    top: var(--space-200);
+    right: var(--space-050);
+  }
+
+  .menu:has([aria-expanded="true"]) {
+    :global(.link) {
+      font-size: var(--font-size-100);
+      margin-block: var(--space-100);
+    }
+
+    .actions {
+      display: flex;
+    }
+
+    .backdrop {
+      display: block;
+    }
+
+    :global(.mode-toggle) {
+      margin-top: calc(var(--space-200) * -1);
+      align-self: start;
+    }
+  }
+
+  .backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: none;
+  }
+
+  .links {
+    margin-block: var(--space-400);
+    align-self: stretch;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: var(--space-300);
+    flex-direction: column;
+
+    @media screen and (min-width: 576px) {
+      margin-block: 0;
+      padding-right: var(--space-300);
+      border-right: 1px solid var(--color-border);
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+</style>
