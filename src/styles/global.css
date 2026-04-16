@@ -61,8 +61,10 @@ a {
 p {
   font-size: var(--font-size-100);
   margin-block-end: var(--space-300);
+  letter-spacing: 0.01rem;
   line-height: var(--line-height-large);
-  max-width: 600px;
+  max-width: 720px;
+  text-wrap-style: pretty;
 }
 
 span {
