@@ -43,6 +43,8 @@ export default defineConfig({
     format: "file",
   },
 
-  adapter: cloudflare({ imageService: "cloudflare" }),
+  adapter: cloudflare({
+    imageService: { build: "compile", runtime: "cloudflare-binding" },
+  }),
   integrations: [mdx()],
 });
