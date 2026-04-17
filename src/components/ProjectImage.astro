@@ -27,6 +27,16 @@ const id = `dialog-${Math.random().toString(36).slice(2)}`;
 </dialog>
 
 <style>
+  .project-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-100);
+    color: var(--color-content-secondary);
+    font-size: var(--font-size-050);
+  }
+
   .trigger {
     all: unset;
     cursor: zoom-in;
@@ -34,8 +44,8 @@ const id = `dialog-${Math.random().toString(36).slice(2)}`;
   }
 
   .lightbox {
-    max-width: 95vw;
-    max-height: 95vh;
+    max-width: 100svw;
+    max-height: 100svh;
     border: none;
     padding: var(--space-200);
     background-color: transparent;
