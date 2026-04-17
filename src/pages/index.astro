@@ -24,13 +24,7 @@ const pageTitle = "Ray Zaranza | Desenvolvedor front-end · Designer de UI";
       href="/projetos"
       isInline={false}>Todos os projetos <ArrowRightIcon /></Link
     >
-    <ProjectList variant="grid">
-      {
-        projects.map((project) => (
-          <ProjectCard project={project} variant="grid" />
-        ))
-      }
-    </ProjectList>
+    <ProjectList projects={projects} variant="grid" />
   </Section>
   <Section>
     <h2 slot="header">Sobre</h2>
