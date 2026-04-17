@@ -50,7 +50,7 @@ button,
 a {
   text-decoration-line: underline;
   text-underline-offset: 0.3rem;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.2px;
   text-decoration-style: solid;
 
   &:hover {
