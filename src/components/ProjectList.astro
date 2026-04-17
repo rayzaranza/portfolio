@@ -1,13 +1,21 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
 interface Props {
   variant: "list" | "grid";
+  projects: CollectionEntry<"projects">[];
 }
 
-const { variant = "list" } = Astro.props;
+const { projects, variant = "list" } = Astro.props;
 ---
 
 <ul class:list={["project-list", variant]}>
-  <slot />
+  {
+    projects.map((project) => (
+      <ProjectCard project={project} variant={variant} />
+    ))
+  }
 </ul>
 
 <style>
@@ -23,6 +31,7 @@ const { variant = "list" } = Astro.props;
   .grid {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
 
     @media screen and (min-width: 576px) {
       grid-template-columns: repeat(3, 1fr);

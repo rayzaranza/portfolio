@@ -52,9 +52,14 @@ const {
   .link[aria-current="true"] {
     color: var(--color-content);
     font-weight: 600;
+    transition: all 200ms ease-in-out;
     text-decoration-style: wavy;
     text-decoration-thickness: 1.3px;
     text-decoration-line: underline;
+
+    &:hover {
+      text-decoration-style: solid;
+    }
   }
 
   .active-indicator {
@@ -73,7 +78,9 @@ const {
 
     &:hover {
       color: var(--color-content);
-      text-decoration-line: none;
+      text-decoration-line: underline;
+      text-decoration-thickness: 2px;
+      text-decoration-style: dotted;
     }
   }
 </style>

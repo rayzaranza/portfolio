@@ -12,8 +12,6 @@ const projects = await getCollection("projects");
 <RootLayout pageTitle={pageTitle}>
   <Section>
     <h1 slot="header">{pageTitle}</h1>
-    <ProjectList variant="list">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </ProjectList>
+    <ProjectList projects={projects} variant="list" />
   </Section>
 </RootLayout>
