@@ -6,6 +6,7 @@ import RootLayout from "@/layouts/RootLayout.astro";
 import Section from "@/layouts/Section.astro";
 import Link from "@/components/Link.astro";
 import Image from "astro/components/Image.astro";
+import TagList from "@/components/TagList.astro";
 import { GithubIcon, LinkedinIcon, MailIcon, MapPinIcon } from "astro-feather";
 const pageTitle = "Sobre";
 
@@ -64,15 +65,14 @@ import profileImage from "@/assets/images/profile.jpg";
     <ul class="work-list">
       {
         work.map((work) => (
-          <li>
-            <header>
-              <h3 class="title">
-                {work.name}
-                <span class="caption">
-                  · {work.startDate}—{work.endDate ?? "atual"}
-                </span>
-              </h3>
-            </header>
+          <li class="work">
+            <h3 class="work-title">
+              {work.name}
+              <span class="caption">
+                · {work.startDate}—{work.endDate ?? "atual"}
+              </span>
+            </h3>
+            <TagList tags={work.roles} />
             <span class="caption">{work.position}</span>
             <p class="work-description">{work.summary}</p>
           </li>
@@ -87,6 +87,10 @@ import profileImage from "@/assets/images/profile.jpg";
     border-radius: 128px;
     aspect-ratio: 1;
     flex-shrink: 0;
+  }
+
+  .summary {
+    margin-bottom: 0;
   }
 
   .profile {
@@ -107,11 +111,54 @@ import profileImage from "@/assets/images/profile.jpg";
   .info {
     display: flex;
     flex-direction: column;
-    gap: var(--space-100);
+    gap: var(--space-050);
+  }
+
+  .work {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-050);
+    margin-bottom: calc(var(--space-200) * -1);
+    padding-left: var(--space-200);
+    padding-bottom: var(--space-600);
+    position: relative;
+
+    @media screen and (min-width: 576px) {
+      padding-left: var(--space-300);
+    }
+
+    &:hover .work::before {
+      background-color: var(--color-content);
+      border: 3px solid var(--color-background);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &:not(:last-child)::after {
+      left: 0;
+      bottom: 0;
+      top: var(--space-100);
+      border-left: 1px solid var(--color-border-secondary);
+    }
+
+    &::before {
+      left: calc(var(--space-050) * -1 - 0.06rem);
+      top: calc(var(--space-050) + 0.05rem);
+      width: 12px;
+      height: 12px;
+      background-color: var(--color-background);
+      border: 1px solid var(--color-border);
+      z-index: 1;
+      rotate: 45deg;
+    }
   }
 
   .location {
-    margin-block: var(--space-050);
+    margin-block: var(--space-100);
     display: flex;
     align-items: center;
     gap: var(--space-050);
@@ -120,18 +167,19 @@ import profileImage from "@/assets/images/profile.jpg";
   .work-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-400);
+    position: relative;
   }
 
   .work-description {
-    margin-block: var(--space-200);
     font-size: var(--font-size-100);
+    margin-bottom: 0;
   }
 
-  .title {
+  .work-title {
     font-size: var(--font-size-700);
     margin-bottom: var(--space-050);
     color: var(--color-content);
+    position: relative;
   }
 
   .name {
