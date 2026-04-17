@@ -1,6 +1,6 @@
 export interface WorkEntry {
   name: string;
-  position: string;
+  roles: string[];
   startDate: string;
   endDate?: string;
   url?: string;
