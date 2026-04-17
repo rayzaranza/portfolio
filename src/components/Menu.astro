@@ -65,7 +65,7 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
       justify-content: center;
       position: static;
       flex-direction: row;
-      gap: var(--space-200);
+      gap: var(--space-300);
     }
   }
 
@@ -133,8 +133,6 @@ const isActive = (page: string) => Astro.url.pathname.startsWith(page);
 
     @media screen and (min-width: 576px) {
       margin-block: 0;
-      padding-right: var(--space-300);
-      border-right: 1px solid var(--color-border);
       align-items: center;
       flex-direction: row;
     }
