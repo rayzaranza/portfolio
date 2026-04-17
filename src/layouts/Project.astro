@@ -17,22 +17,11 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const {
-  title,
-  tags,
-  description,
-  github,
-  website,
-  cover,
-  alt,
-  year,
-  contributors,
-  client,
-  company,
-} = project.data;
+const { title, tags, github, website, cover, alt, year, client, company } =
+  project.data;
 ---
 
-<RootLayout pageTitle={title}>
+<RootLayout pageTitle={"Projeto · " + title}>
   <Wrapper>
     <header class="header">
       <Link href="/projetos"><ArrowLeftIcon />Projetos</Link>
@@ -49,38 +38,11 @@ const {
 
     <main>
       <section class="intro">
-        <div>
-          <span class="label">Descrição do projeto</span>
-          <p>{description}</p>
-
-          <ul class="links">
-            {
-              github && (
-                <li>
-                  <Link className="button bordered" href={github} isExternal>
-                    <GithubIcon /> GitHub <ExternalLinkIcon size={16} />
-                  </Link>
-                </li>
-              )
-            }
-            {
-              website && (
-                <li>
-                  <Link className="button bordered" href={website} isExternal>
-                    <GlobeIcon /> Site <ExternalLinkIcon size={16} />
-                  </Link>
-                </li>
-              )
-            }
-          </ul>
-        </div>
-
         <dl class="details">
           <div>
             <dt>Ano</dt>
             <dd>{year}</dd>
           </div>
-
           {
             company && (
               <div>
@@ -89,7 +51,6 @@ const {
               </div>
             )
           }
-
           {
             client && (
               <div>
@@ -98,27 +59,34 @@ const {
               </div>
             )
           }
-
-          {
-            contributors?.map(
-              (contributor) =>
-                contributor && (
-                  <div>
-                    <dt>{contributor.role}</dt>
-                    <dd>{contributor?.name}</dd>
-                  </div>
-                ),
-            )
-          }
+          <div class="links">
+            <dt class="visually-hidden">Links</dt>
+            {
+              github && (
+                <dt>
+                  <Link className="button bordered" href={github} isExternal>
+                    <GithubIcon /> GitHub <ExternalLinkIcon size={16} />
+                  </Link>
+                </dt>
+              )
+            }
+            {
+              website && (
+                <dd>
+                  <Link className="button bordered" href={website} isExternal>
+                    <GlobeIcon /> Site <ExternalLinkIcon size={16} />
+                  </Link>
+                </dd>
+              )
+            }
+          </div>
         </dl>
       </section>
 
       <section class="content">
-        <h2>Detalhes do projeto</h2>
-        <div>
-          <slot />
-        </div>
+        <slot />
       </section>
+      <hr />
     </main>
   </Wrapper>
 
@@ -132,48 +100,55 @@ const {
     .cover {
       margin-top: var(--space-100);
       margin-bottom: var(--space-400);
-      height: 180px;
-      border: 1px solid var(--color-border);
-      @media screen and (min-width: 576px) {
-        height: 400px;
-      }
     }
 
     .content {
-      margin-top: var(--space-200);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-200);
-
-      img {
-        width: 100%;
-      }
+      margin-bottom: var(--space-600);
 
       p {
-        max-width: 600px;
+        a {
+          font-size: inherit;
+          color: inherit;
+        }
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-block-end: var(--space-200);
+      }
+      img {
+        width: 100%;
+        border: 1px solid var(--color-border-secondary);
       }
     }
 
     .links {
       display: flex;
+      align-items: baseline;
       gap: var(--space-100);
     }
 
     .details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      row-gap: var(--space-400);
-      column-gap: var(--space-200);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-600);
+      row-gap: var(--space-300);
+      align-items: center;
+      align-content: center;
+      justify-content: start;
+      width: 100%;
     }
 
     .intro {
-      display: grid;
-      margin-bottom: var(--space-600);
-      gap: var(--space-400);
+      display: flex;
+      gap: var(--space-200);
+      padding-bottom: var(--space-300);
+      margin-bottom: var(--space-400);
+      border-bottom: 1px solid var(--color-border-secondary);
 
       @media screen and (min-width: 720px) {
-        grid-template-columns: 2fr 1fr;
-        gap: var(--space-700);
+        gap: var(--space-400);
       }
     }
   </style>
