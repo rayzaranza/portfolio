@@ -4,44 +4,40 @@
     {
       "name": "zaranza",
       "url": "https://www.instagram.com/zaranza.co",
-      "roles": ["Designer", "Desenvolvedor Front-end"],
+      "roles": ["Desenvolvedor Front-end", "Designer"],
       "startDate": "2024",
-      "summary": "No estúdio zaranza, contribuo com construção de marcas, modelagem 3D e desenvolvimento de sites. Fizemos parte da equipe de design do pavilhão brasileiro na Expo 2025 em Osaka e agora trabalho no site e CMS do estúdio."
+      "summary": "Desenvolvimento de site e CMS com React e TanStack Start. Participação no projeto de design do pavilhão brasileiro na Expo 2025 em Osaka. Criação de identidades visuais e projetos editoriais."
     },
     {
       "name": "Arcotech | Arco Educação",
       "url": "https://linkedin.com/company/arcotecheducacao",
-      "roles": ["Designer de Produto", "Design Ops", "Design System"],
+      "roles": ["Designer de Produto", "Design System"],
       "endDate": "2024",
       "startDate": "2021",
-      "summary": "No time de Design Ops, escalamos e melhoramos a consistência de plataformas educacionais de múltiplos sistemas de ensino. Fui um dos responsáveis pela criação do Iris DS, um Design System multimarcas para a plataforma whitelabel da Arco."
+      "summary": "Criação e evolução do Iris DS, design system multimarcas da Arcotech, da concepção e arquitetura de tokens ao handoff de componentes, documentação no ZeroHeight e Storybook, e treinamentos com times de design e produto. Atuação em Design Ops, padronizando processos e realizando treinamentos sobre DS e Figma."
     },
     {
       "name": "SAS | Arco Educação",
       "url": "https://www.saseducacao.com.br/",
-      "roles": ["Designer de Produto", "Design System"],
+      "roles": ["Designer de Produto"],
       "endDate": "2021",
       "startDate": "2018",
-      "summary": "Construí ferramentas para gestores, professores e alunos de todo o Brasil, como Eureka!, Tarefa Online e Plataforma de Avaliações. Desenvolvi o Alfabeto DS, base para o Iris DS da Arcotech."
+      "summary": "Criação de produtos educacionais para alunos, professores e gestores, como Eureka, Tarefa Online e Plataforma de Avaliações Digitais. Criação do Alfabeto DS, design system da plataforma SAS."
     },
     {
       "name": "Gadioli",
       "url": "https://gadioli.com/",
-      "roles": [
-        "Diretor de Arte",
-        "Designer de Interface",
-        "Desenvolvedor Front-end"
-      ],
+      "roles": ["UI Designer", "Desenvolvedor Front-end"],
       "endDate": "2018",
       "startDate": "2016",
-      "summary": "Comecei como diretor de arte e migrei para UI/front-end, criando sites para clientes e sistemas internos da agência. Trabalhei na interface e front de projetos como o site da agência e o Portal de Normas Técnicas da CBIC."
+      "summary": "Desenvolvimento de sites e sistemas internos para clientes. Implementação do Portal de Normas Técnicas da CBIC. Desenvolvimento front-end com Vue, WordPress, HTML e CSS. Criação de interfaces e protótipos."
     },
     {
       "name": "Freelancer",
       "roles": ["Designer Gráfico", "Ilustrador"],
       "endDate": "2017",
       "startDate": "2013",
-      "summary": "Criei identidades visuais e ilustrações em projetos como Fiasco Records e a identidade inicial da Bateu."
+      "summary": "Criação de identidades visuais e ilustrações em projetos como Fiasco Records e Bateu."
     },
     {
       "name": "Faculdade Vale do Jaguaribe",
@@ -49,21 +45,21 @@
       "roles": ["Designer Gráfico", "Editor de Vídeo"],
       "endDate": "2015",
       "startDate": "2014",
-      "summary": "Diagramava materiais institucionais e editava vídeos para mídia indoor."
+      "summary": "Diagramação de materiais institucionais e edição de vídeo para mídia indoor."
     },
     {
       "name": "Magazine Guerra",
-      "roles": ["Designer Gráfico", "Designer de Interface"],
+      "roles": ["Designer Gráfico"],
       "endDate": "2015",
       "startDate": "2014",
-      "summary": "Criava encartes e materiais promociais da loja e no design do site."
+      "summary": "Criação de encartes e materiais promociais da loja e no design do site."
     },
     {
       "name": "Gráfica Visual",
       "roles": ["Designer Gráfico"],
       "endDate": "2012",
       "startDate": "2012",
-      "summary": "Diagramava materiais para impressão."
+      "summary": "Diagramação de materiais para impressão."
     }
   ]
 }

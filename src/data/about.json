@@ -5,7 +5,7 @@
     "url": "https://rayzaranza.com.br",
     "name": "Ray Zaranza",
     "email": "rayzaranza@gmail.com",
-    "label": "Desenvolvedor front-end · Designer de interface",
+    "label": "Desenvolvedor Front-end · UI & Design Systems",
     "location": {
       "city": "Fortaleza",
       "region": "Ceará",
@@ -24,6 +24,6 @@
         "username": "rayzaranza"
       }
     ],
-    "summary": "Olá! Me chamo Ray, sou filho de Theresa, nasci em Aracati e hoje moro em Fortaleza. Há mais de 10 anos, comecei no design gráfico e edição de vídeo. Em 2018, migrei para UX/UI e fui me especializando em Design Systems. Sou apaixonado pela interseção entre tecnologia e arte, além de design, desenvolvo sites e exploro computação gráfica."
+    "summary": "Me chamo Ray, nasci em Aracati e moro em Fortaleza. Comecei no design gráfico e fui migrando para UX/UI e, depois, para desenvolvimento front-end. Passei 6 anos na Arco Educação, onde fui um dos responsáveis pelo Iris DS, um design system React multimarcas para plataformas educacionais em escala nacional. Hoje trabalho no estúdio zaranza desenvolvendo sites e aplicações, principalmente com React e TypeScript."
   }
 }
