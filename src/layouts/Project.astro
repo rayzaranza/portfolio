@@ -121,12 +121,22 @@ const { title, tags, github, website, cover, alt, year, client, company } =
         margin-top: var(--space-500);
       }
 
+      h3 {
+        margin-top: var(--space-400);
+      }
+
       img {
         border: 1px solid var(--color-border-secondary);
       }
 
+      p ~ figure {
+        margin-top: var(--space-400);
+        margin-bottom: var(--space-600);
+      }
+
       ul {
-        list-style: inside circle;
+        list-style: circle;
+        margin-inline-start: var(--space-200);
         margin-block-end: var(--space-400);
 
         li {
