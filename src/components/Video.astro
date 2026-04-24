@@ -2,13 +2,16 @@
 interface Props {
   src: string;
   caption?: string;
+  type?: string;
 }
 
-const { src, caption } = Astro.props;
+const { src, caption, type = "video/mp4" } = Astro.props;
 ---
 
 <div class="video-wrapper">
-  <video class="video" src={src} autoplay muted controls></video>
+  <video class="video" autoplay muted controls playsinline>
+    <source src={src} type={type} />
+  </video>
   {caption && <span class="caption">{caption}</span>}
 </div>
 
