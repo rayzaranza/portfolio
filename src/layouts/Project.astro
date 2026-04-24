@@ -105,11 +105,10 @@ const { title, tags, github, website, cover, alt, year, client, company } =
     .content {
       margin-bottom: var(--space-600);
 
-      p {
-        a {
-          font-size: inherit;
-          color: inherit;
-        }
+      a,
+      a > span {
+        font-size: inherit;
+        color: inherit;
       }
 
       h1,
@@ -117,9 +116,32 @@ const { title, tags, github, website, cover, alt, year, client, company } =
       h3 {
         margin-block-end: var(--space-200);
       }
+
+      h2 {
+        margin-top: var(--space-500);
+      }
+
+      h3 {
+        margin-top: var(--space-400);
+      }
+
       img {
-        width: 100%;
         border: 1px solid var(--color-border-secondary);
+      }
+
+      p ~ figure {
+        margin-top: var(--space-400);
+        margin-bottom: var(--space-600);
+      }
+
+      ul {
+        list-style: circle;
+        margin-inline-start: var(--space-200);
+        margin-block-end: var(--space-400);
+
+        li {
+          margin-block-end: var(--space-100);
+        }
       }
     }
 

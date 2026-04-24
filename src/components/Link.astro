@@ -33,11 +33,8 @@ const {
   .link {
     display: inline-flex;
     align-items: center;
-    color: var(--color-content-secondary);
-    font-size: var(--font-size-050);
     gap: var(--space-050);
     text-decoration-line: none;
-    font-weight: 500;
     position: relative;
 
     &:hover {
@@ -46,10 +43,16 @@ const {
     }
   }
 
+  .link,
+  .link > span {
+    font-weight: 500;
+    color: var(--color-content-secondary);
+    font-size: var(--font-size-050);
+  }
+
   .link[aria-current="true"] {
     color: var(--color-content);
     font-weight: 600;
-    transition: all 200ms ease-in-out;
     text-decoration-style: wavy;
     text-decoration-thickness: 1.3px;
     text-decoration-line: underline;

@@ -27,7 +27,6 @@ import profileImage from "@/assets/images/profile.jpg";
           src={profileImage}
           alt="foto de perfil"
           width={128}
-          height={128}
         />
         <div class="info">
           <span class="name">{name}</span>
@@ -36,28 +35,26 @@ import profileImage from "@/assets/images/profile.jpg";
             ><MapPinIcon size={18} />
             {location.city}, {location.region}, {location.countryCode}</span
           >
-          <ul class="links">
-            <li>
-              <Link href={`mailto:${email}`}><MailIcon size={18} /> Email</Link>
-            </li>
-            {
-              profiles.map((profile) => (
-                <li>
-                  <Link isExternal href={profile.url}>
-                    {profile.network === "GitHub" && <GithubIcon size={18} />}
-                    {profile.network === "LinkedIn" && (
-                      <LinkedinIcon size={18} />
-                    )}
-                    {profile.network}
-                  </Link>
-                </li>
-              ))
-            }
-          </ul>
         </div>
       </div>
     </div>
     <p class="summary">{summary}</p>
+    <ul class="links">
+      <li>
+        <Link href={`mailto:${email}`}><MailIcon size={18} /> Email</Link>
+      </li>
+      {
+        profiles.map((profile) => (
+          <li>
+            <Link isExternal href={profile.url}>
+              {profile.network === "GitHub" && <GithubIcon size={18} />}
+              {profile.network === "LinkedIn" && <LinkedinIcon size={18} />}
+              {profile.network}
+            </Link>
+          </li>
+        ))
+      }
+    </ul>
   </Section>
 
   <Section>
@@ -85,7 +82,6 @@ import profileImage from "@/assets/images/profile.jpg";
   .avatar {
     border-radius: 128px;
     aspect-ratio: 1;
-    flex-shrink: 0;
   }
 
   .summary {
@@ -104,7 +100,7 @@ import profileImage from "@/assets/images/profile.jpg";
 
   .links {
     display: flex;
-    gap: var(--space-200);
+    gap: var(--space-300);
   }
 
   .info {

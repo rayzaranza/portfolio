@@ -1,0 +1,223 @@
+---
+title: avia
+year: 2026
+description: Aplicativo de tarefas por projeto, criado para aprofundar prática em front-end.
+cover: ../assets/avia/avia-capa.png
+alt: Capa do projeto avia mostrando o logo do aplicativo e uma tela de celular com tarefas.
+tags: [ux/ui, front-end]
+website: https://avia.rayzaranza.com.br
+github: https://github.com/rayzaranza/avia
+---
+
+import Gallery from "@/components/Gallery.astro";
+import ProjectImage from "@/components/ProjectImage.astro";
+import Link from "@/components/Link.astro";
+import Video from "@/components/Video.astro";
+
+import visualLanguageImage from "@/assets/avia/avia-linguagem-visual.png";
+import mobileScreensImage from "@/assets/avia/avia-telas-mobile.png";
+import tokensFigmaImage from "@/assets/avia/avia-tokens-figma.png";
+import layoutsFigmaMobileImage from "@/assets/avia/avia-layouts-figma-mobile.png";
+import layoutsFigmaDesktopImage from "@/assets/avia/avia-layouts-figma-desktop.png";
+import componentsFigmaImage from "@/assets/avia/avia-componentes.png";
+import tokensCssImage from "@/assets/avia/avia-tokens-css.png";
+import classesCssImage from "@/assets/avia/avia-classes-css.png";
+import authCodeImage from "@/assets/avia/avia-code-auth.png";
+import routesCodeImage from "@/assets/avia/avia-code-routes.png";
+import optimistToggleImage from "@/assets/avia/avia-optimist-toggle.png";
+import softDeleteImage from "@/assets/avia/avia-soft-delete.png";
+import testsImage from "@/assets/avia/avia-tests.png";
+import deployImage from "@/assets/avia/avia-deploy.png";
+
+avia é um aplicativo web para organizar tarefas por projeto. Criei o produto do design ao deploy para praticar front-end em um fluxo completo, passando por interface, autenticação, dados, testes e publicação.
+
+Usei o projeto para estudar React 19, Supabase Auth, Tailwind com tokens próprios, testes unitários e deploy contínuo. Todo o código foi escrito por mim, com pesquisas e revisões pontuais usando Perplexity e Claude. Todo o código fonte está disponível no repositório <Link isExternal href="https://github.com/rayzaranza/avia">github.com/rayzaranza/avia</Link> e o app está em produção em <Link isExternal href="https://avia.rayzaranza.com.br">avia.rayzaranza.com.br</Link>.
+
+<Video src="https://res.cloudinary.com/dulmlipof/video/upload/v1776884591/avia-demo_l4w3d7.mp4" />
+
+## Funcionalidades
+
+- Autenticação com email, Google e GitHub
+- Criação de projetos
+- Criação e conclusão de tarefas por projeto
+- Exclusão de projetos e tarefas com opção de desfazer
+
+<ProjectImage src={mobileScreensImage} alt="telas mobile" />
+
+## Processo
+
+### Design
+
+No Figma, explorei alguns estilos possíveis para definir a linguagem visual do app. Chegando em algo "blocado" e "tátil", com sombras duras e elementos em camadas. A ideia era que os elementos interativos seguissem o estilo `blocky`, com algumas variações, como `blocky-inset` para inputs e estado ativo de botões, simulando uma "indentação" na tela. A fonte é a <Link isExternal href="https://github.com/scfried/soft-type-jersey">Jersey 20</Link> e os ícones são da <Link isExternal href="https://github.com/hackernoon/pixel-icon-library">Pixel Icon Library</Link>.
+
+<ProjectImage
+  src={visualLanguageImage}
+  alt="linguagem de design"
+  caption="Linguagem de design do avia"
+/>
+
+Com essa linguagem definida já era possível criar a base do app. Criei os design tokens como variáveis no Figma e criei o kit de componentes para começar a desenhar as principais telas. Como o foco do projeto é desenvolver o front-end, decidi pular a etapa de desenhar os fluxos e protótipos interativos no Figma.
+
+<Gallery
+  images={[
+    {
+      src: tokensFigmaImage,
+      alt: "Design tokens como variáveis no Figma",
+      caption: "Design Tokens como variáveis no Figma",
+    },
+    {
+      src: componentsFigmaImage,
+      alt: "Componentes do avia no Figma",
+      caption: "Kit de componentes do avia",
+    },
+    {
+      src: layoutsFigmaMobileImage,
+      alt: "Páginas principais como componentes",
+      caption: "Páginas principais como componentes",
+    },
+    {
+      src: layoutsFigmaDesktopImage,
+      alt: "Páginas principais como componentes (desktop)",
+      caption: "Páginas principais como componentes (desktop)",
+    },
+  ]}
+/>
+
+### Front-end
+
+Com os tokens, componentes e layouts fechados já era possível começar o front-end. Iniciei um projeto em React e Typescript com Vite, usando Tailwind para o CSS. Levei os tokens do Figma como um tema no Tailwind para manter cores, espaçamentos e estados visuais consistentes, removendo os tokens predefinidos que não seriam usados. Aproveitei também para usar cores em OKLCH no CSS tornando mais intuitivo manipular as cores e expandir a paleta.
+
+<ProjectImage
+  src={tokensCssImage}
+  alt="Design tokens no CSS com Tailwind"
+  caption="Design tokens como variáveis CSS no Tailwind"
+/>
+
+Também criei classes utilitárias para o estilo `blocky` pra usar em elementos interativos, já incluindo as cores, sombras, interações, etc.
+
+<ProjectImage
+  src={classesCssImage}
+  alt="Classes utilitárias no Tailwind"
+  caption="Classes utilitárias no CSS com Tailwind"
+/>
+
+### Autenticação
+
+Usei Supabase Auth para cadastro por email e login com Google e GitHub. Para manter o foco no front-end, não criei um backend próprio: consumi a REST API do Supabase direto pela aplicação.
+
+<ProjectImage
+  src={authCodeImage}
+  alt="Funções para autenticação com Supabase"
+  caption="Funções para autenticação com Supabase"
+/>
+
+### Rotas
+
+Para criar a navegação interna do app, usei o TanStack Router para criar rotas usando os arquivos criados na pasta `src/routes/`, com isso também fui capaz de criar rotas protegidas apenas para usuários logados e usar os loaders para carregar os dados com a API do Supabase.
+
+<ProjectImage
+  src={routesCodeImage}
+  alt="Funções para autenticação com Supabase"
+  caption="Arquivos de rota com TanStack Router"
+/>
+
+### Interações
+
+Para as interações, principalmente a de marcar uma tarefa como concluída usei os hooks `useOptimistic` e `useTransition` do React 19 para evitar o delay de clicar e esperar a requisição terminar pra mostrar o estado atualizado.
+
+<ProjectImage
+  src={optimistToggleImage}
+  alt="Uso dos hooks para mutação otimista da interface"
+  caption="Uso dos hooks para mutação otimista da interface"
+/>
+
+Também implementei soft delete com opção de desfazer, reduzindo o impacto de exclusões acidentais. Usei o Sonner para gerenciar a lógica dos toasts.
+
+<ProjectImage
+  src={softDeleteImage}
+  alt="Exclusão de tarefas com opção de desfazer"
+  caption="Exclusão de tarefas com opção de desfazer"
+/>
+
+### Testes
+
+Usei Testing Library, Vitest e JSDOM para escrever testes unitários básicos. O objetivo não foi cobrir o app inteiro, mas entender melhor como testar componentes e fluxos de interface.
+
+<ProjectImage
+  src={testsImage}
+  alt="Testes unitários dos principais componentes"
+  caption="Testes unitários dos principais componentes"
+/>
+
+### Deploy
+
+Pra hospedar o app em produção criei um Worker no Cloudflare, apontando para um domínio próprio, e integrei com GitHub para fazer deploy contínuo.
+
+<ProjectImage
+  src={deployImage}
+  alt="Deploy contínuo com Cloudflare Worker e GitHub"
+  caption="Deploy contínuo com Cloudflare Worker e GitHub"
+/>
+
+## Aprendizados
+
+- Conduzir um produto simples do design ao deploy
+- Criar e aplicar tokens com Tailwind
+- Integrar autenticação com Supabase Auth
+- Consumir a REST API do Supabase no front-end
+- Aplicar mutação otimista com React 19
+- Criar soft delete com opção de desfazer
+- Escrever testes unitários básicos
+- Configurar deploy contínuo com Cloudflare e Wrangler
+
+## Tecnologias usadas
+
+- <Link isExternal href="https://www.figma.com/">
+    <span>Figma</span>
+  </Link>
+- <Link isExternal href="https://www.typescriptlang.org/">
+    <span>TypeScript</span>
+  </Link>
+- <Link isExternal href="https://react.dev/">
+    <span>React</span>
+  </Link>
+- <Link isExternal href="https://vite.dev/">
+    <span>Vite</span>
+  </Link>
+- <Link isExternal href="https://tailwindcss.com/">
+    <span>Tailwind CSS</span>
+  </Link>
+- <Link isExternal href="https://tanstack.com/router/">
+    <span>TanStack Router</span>
+  </Link>
+- <Link isExternal href="https://supabase.com/">
+    <span>Supabase</span>
+  </Link>
+- <Link isExternal href="https://testing-library.com/">
+    <span>Testing Library</span>
+  </Link>
+- <Link isExternal href="https://vitest.dev/">
+    <span>Vitest</span>
+  </Link>
+- <Link isExternal href="https://developers.cloudflare.com/workers/wrangler/">
+    <span>Wrangler</span>
+  </Link>
+- <Link isExternal href="https://pages.cloudflare.com/">
+    <span>Cloudflare Pages</span>
+  </Link>
+- <Link isExternal href="https://zod.dev/">
+    <span>Zod</span>
+  </Link>
+- <Link isExternal href="https://sonner.emilkowal.ski/">
+    <span>Sonner</span>
+  </Link>
+- <Link isExternal href="https://github.com/alexkatz/react-tiny-popover">
+    <span>react-tiny-popover</span>
+  </Link>
+
+## Próximos passos
+
+- Melhorar os fluxos de exclusão no mobile
+- Ampliar a cobertura de testes dos fluxos principais
+- Refinar acessibilidade em foco, contraste e navegação por teclado
+- Limpar os projetos e tarefas excluídos do banco a cada mês

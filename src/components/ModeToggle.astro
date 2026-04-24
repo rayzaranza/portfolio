@@ -3,15 +3,15 @@ import { SunIcon, MoonIcon } from "astro-feather";
 ---
 
 <button
-  class="mode-toggle"
+  class="mode-toggle bordered"
   aria-label="Alterar modo de cores"
   title="Alterar modo de cores"
   data-mode-toggle
 >
   <MoonIcon customClasses="icon dark" />
   <SunIcon customClasses="icon light" />
-  <span class="light">modo claro</span>
-  <span class="dark">modo escuro</span>
+  <span class="light">Claro</span>
+  <span class="dark">Escuro</span>
 </button>
 
 <script>
@@ -31,15 +31,13 @@ import { SunIcon, MoonIcon } from "astro-feather";
 
 <style>
   .mode-toggle {
-    border: 1px solid var(--color-border);
     @media screen and (min-width: 576px) {
-      border: none;
-      padding: var(--space-100);
+      width: 6rem;
+      padding: var(--space-150);
       text-align: left;
       line-height: 1;
       font-weight: 400;
       font-size: var(--font-size-050);
-      width: 5.5rem;
     }
   }
 
